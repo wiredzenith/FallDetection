@@ -1,2 +1,2 @@
 # Fall Detection For The Elderly
-..*project proposal
+..* project proposal
