@@ -14,12 +14,12 @@ userRoute.route('/add-user').post((req, res, next) => {
     } else {
       res.json(data)
     }
-  })
+  }
 })
 
 // Get all user
 userRoute.route('/').get((req, res) => {
-
+console.log("Serving home page . . . ");
   User.find((error, data) => {
     if (error) {
 
