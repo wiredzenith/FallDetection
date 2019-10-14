@@ -22,7 +22,7 @@ let User = new Schema({
     type: Date
   }
 }, {
-  collection: 'users'
+  collection: 'user'
 })
 
 module.exports = mongoose.model('User', User)

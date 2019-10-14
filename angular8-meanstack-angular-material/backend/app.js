@@ -1,9 +1,11 @@
-  let express = require('express'),
+let express = require('express'),
   path = require('path'),
   mongoose = require('mongoose'),
   cors = require('cors'),
   bodyParser = require('body-parser'),
   dataBaseConfig = require('./database/db');
+  var createError = require('http-errors')
+
 
 // Connecting mongoDB
 mongoose.Promise = global.Promise;
@@ -11,6 +13,8 @@ mongoose.connect(dataBaseConfig.db, {
   useNewUrlParser: true
 }).then(() => {
     console.log('Database connected sucessfully ')
+    console.log(__dirname);
+
   },
   error => {
     console.log('Could not connected to database : ' + error)
@@ -18,15 +22,15 @@ mongoose.connect(dataBaseConfig.db, {
 )
 
 // Set up express js port
-const userRoute = require('../backend/routes/user.route')
+const userRoute = require('./routes/user.route.js')
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cors());
-app.use(express.static(path.join(__dirname, 'dist/angular8-meanstack-angular-material')));
-app.use('/', express.static(path.join(__dirname, 'dist/angular8-meanstack-angular-material')));
+app.use(express.static(path.join(__dirname, '../src')));
+app.use('/', express.static(path.join(__dirname, '../src/app')));
 app.use('/api', userRoute)
 
 // Create port

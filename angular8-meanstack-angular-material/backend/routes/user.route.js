@@ -1,7 +1,7 @@
-
 const express = require('express');
 const app = express();
 const userRoute = express.Router();
+var createError = require('http-errors')
 
 // User model
 let User = require('../model/User');
@@ -15,12 +15,14 @@ userRoute.route('/add-user').post((req, res, next) => {
       res.json(data)
     }
   })
-});
+})
 
 // Get all user
 userRoute.route('/').get((req, res) => {
+
   User.find((error, data) => {
     if (error) {
+
       return next(error)
     } else {
       res.json(data)
