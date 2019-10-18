@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
 import "./NotFound.css";
 
 export default function NotFound() {
@@ -22,9 +20,6 @@ export default function NotFound() {
   		</h3>
 
   		<p>the page you are looking for not avaible!</p>
-
-
-      <Link to ="/"><button class="link_404">Go Home</button></Link>
   	</div>
   		</div>
   		</div>
