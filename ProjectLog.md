@@ -11,7 +11,14 @@
 
 ### 19/10/19
 
-- continuing work on the [react web page][l2] added landing page, routes, 404 page and login page.
+- continuing work on the [user-login app tutorial][l2] added landing page, routes, 404 page and login page.
+
+### 20/10/19
+
+- started working on [new mern tutorial][l3]
+- completed back-end section of the tutorial which now allows me to add new users to MongoDB using [jwt passport strategy][l4] and json json web-tokens to store encrypted passwords.
 
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
+[l3]: https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669 "new mern tutorial for authentication app"
+[l4]: http://www.passportjs.org/packages/passport-jwt/?source=post_page-----c405048e3669---------------------- "description of jwt passport"
