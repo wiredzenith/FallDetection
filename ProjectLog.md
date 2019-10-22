@@ -22,6 +22,11 @@
 
 - continuing work on the [mern tutorial][l3], i have a login, and register page now i am planning to have the mer tutorial finished by the end of the week or Monday at the latest.
 
+### 22/10/19
+
+- continued work on mern app finished the tutorial that i was working on and the app is working as expected.
+- i want to start adding my own components to my app, such as mobile number page and user details, and more elements the the navbar. i haven't received my development board yet so i will continue on the web page till i receive that.
+
 ### ToDo
 
 - #### mern web app
@@ -30,7 +35,11 @@
 
 - [x] create front end (part 2 of tutorial)
 
-- [ ] link react components using redux (part 3 of tutorial)
+- [x] link react components using redux (part 3 of tutorial)
+
+- [ ] add more pages for adding user details such as phone number
+
+- [ ] add more elements to navbar
 
 - [ ] deploy web app on heroku for testing
 
