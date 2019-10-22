@@ -3,22 +3,18 @@ import { Link } from "react-router-dom";
 class Navbar extends Component {
   render() {
     return (
-      <div className="navbar-fixed">
-        <nav className="z-depth-0">
+        <nav>
           <div className="nav-wrapper white">
-            <Link
-              to="/"
-              style={{
-                fontFamily: "monospace"
-              }}
-              className="col s5 brand-logo center black-text"
-            >
-              <i className="material-icons">code</i>
-              MERN
-            </Link>
+            <Link to="/"style={{fontFamily: "monospace"}}
+            className="brand-logo black-text">
+            <i className="material-icons">code</i>MERN</Link>
+            <ul id="nav-mobile" className=" right hide-on-med-and-down">
+              <li><Link to= "/Dashboard" className=" black-text">Dashboard</Link></li>
+              <li><Link to= "/Dashboard" className=" black-text">Dashboard</Link></li>
+              <li><Link to= "/Dashboard" className=" black-text">Dashboard</Link></li>
+            </ul>
           </div>
         </nav>
-      </div>
     );
   }
 }
