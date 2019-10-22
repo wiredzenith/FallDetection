@@ -18,6 +18,24 @@
 - started working on [new mern tutorial][l3]
 - completed back-end section of the tutorial which now allows me to add new users to MongoDB using [jwt passport strategy][l4] and json json web-tokens to store encrypted passwords.
 
+### 21/10/19
+
+- continuing work on the [mern tutorial][l3], i have a login, and register page now i am planning to have the mer tutorial finished by the end of the week or Monday at the latest.
+
+### ToDo
+
+- #### mern web app
+
+- [x] create back end (part 1 of tutorial)
+
+- [x] create front end (part 2 of tutorial)
+
+- [ ] link react components using redux (part 3 of tutorial)
+
+- [ ] deploy web app on heroku for testing
+
+- [ ] see if its viable to host app on my own server
+
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
 [l3]: https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669 "new mern tutorial for authentication app"
