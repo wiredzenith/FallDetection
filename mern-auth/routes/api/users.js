@@ -7,7 +7,30 @@ const keys = require("../../config/keys");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 // Load User model
-const User = require("../../models/User");
+const Contact = require("../../models/User");
+
+//-----------------My Code---------------------//
+
+router.post("/contact", (req, res) => {
+
+const { errors, isValid } = validateRegisterInput(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+Contact.findOne({ number: req.body.number }).then(user => {
+    if (user) {
+      return res.status(400).json({ number: "Number already exists" });
+    } else {
+      const newUser = new User({
+        name: req.body.name,
+        number: req.body.number,
+      });
+    }
+  });
+});
+
+//--------------------------------------------//
 
 // @route POST api/users/register
 // @desc Register user

@@ -6,11 +6,23 @@ import {
   SET_CURRENT_USER,
   USER_LOADING
 } from "./types";
-// Register User
+
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/register", userData)
     .then(res => history.push("/login")) // re-direct to login on successful register
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
+// Register User
+export const addContact = (userData, history) => dispatch => {
+  axios
+    .post("/api/users/contact", userData)
     .catch(err =>
       dispatch({
         type: GET_ERRORS,

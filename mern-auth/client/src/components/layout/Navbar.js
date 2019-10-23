@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 class Navbar extends Component {
   render() {
     return (
@@ -10,8 +11,7 @@ class Navbar extends Component {
             <i className="material-icons">code</i>MERN</Link>
             <ul id="nav-mobile" className=" right hide-on-med-and-down">
               <li><Link to= "/Dashboard" className=" black-text">Dashboard</Link></li>
-              <li><Link to= "/Dashboard" className=" black-text">Dashboard</Link></li>
-              <li><Link to= "/Dashboard" className=" black-text">Dashboard</Link></li>
+              <li><Link to= "/Details" className=" black-text">Details</Link></li>
             </ul>
           </div>
         </nav>
