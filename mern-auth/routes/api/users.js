@@ -6,6 +6,7 @@ const keys = require("../../config/keys");
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+const validateDetaildInput = require("../../validation/details");
 // Load User model
 const Contact = require("../../models/User");
 
