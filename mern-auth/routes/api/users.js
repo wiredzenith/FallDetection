@@ -6,15 +6,17 @@ const keys = require("../../config/keys");
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
-const validateDetaildInput = require("../../validation/details");
+const validateDetailsInput = require("../../validation/details");
 // Load User model
-const Contact = require("../../models/User");
+const User = require("../../models/User");
+const Contact = require("../../models/Details");
+
 
 //-----------------My Code---------------------//
 
 router.post("/contact", (req, res) => {
 
-const { errors, isValid } = validateRegisterInput(req.body);
+const { errors, isValid } = validateDetailsInput(req.body);
 
   if (!isValid) {
     return res.status(400).json(errors);
@@ -23,12 +25,15 @@ Contact.findOne({ number: req.body.number }).then(user => {
     if (user) {
       return res.status(400).json({ number: "Number already exists" });
     } else {
-      const newUser = new User({
+      const newUser = new Contact({
         name: req.body.name,
         number: req.body.number,
+       
       });
+      newUser.save().then(user => res.json(user)).catch(err => console.log(err));
     }
   });
+
 });
 
 //--------------------------------------------//

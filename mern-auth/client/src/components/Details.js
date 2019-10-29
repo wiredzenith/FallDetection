@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addContact } from "../actions/authActions";
@@ -70,7 +70,9 @@ return (
               flags={flags}
               placeholder="Enter phone number"
               value={ this.state.number }
-              onChange={ value => this.setState({ value }) } />
+              onChange={this.onChange}
+              error={errors.number}
+          />
 
           </div>
         </div>
@@ -104,4 +106,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { addContact }
-)(Details);
+)(withRouter(Details));

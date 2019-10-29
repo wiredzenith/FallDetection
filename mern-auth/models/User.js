@@ -21,17 +21,3 @@ const UserSchema = new Schema({
 });
 
 module.exports = User = mongoose.model("users", UserSchema);
-
-//-----------------My Code---------------------//
-
-const ContactSchema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  number: {
-    type: String,
-    required: true
-  }
-});
-module.exports = Contact = mongoose.model("contact", ContactSchema);

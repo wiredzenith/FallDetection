@@ -7,6 +7,17 @@ import {
   USER_LOADING
 } from "./types";
 
+export const addContact = (userData, history) => dispatch => {
+  axios
+    .post("/api/users/contact", userData)
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+// Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/register", userData)
@@ -19,17 +30,6 @@ export const registerUser = (userData, history) => dispatch => {
     );
 };
 
-// Register User
-export const addContact = (userData, history) => dispatch => {
-  axios
-    .post("/api/users/contact", userData)
-    .catch(err =>
-      dispatch({
-        type: GET_ERRORS,
-        payload: err.response.data
-      })
-    );
-};
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
