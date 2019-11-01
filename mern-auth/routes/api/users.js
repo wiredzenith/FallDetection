@@ -25,12 +25,12 @@ Contact.findOne({ number: req.body.number }).then(user => {
     if (user) {
       return res.status(400).json({ number: "Number already exists" });
     } else {
-      const newUser = new Contact({
+      const newContact = new Contact({
         name: req.body.name,
-        number: req.body.number,
-       
+        number: req.body.number
+
       });
-      newUser.save().then(user => res.json(user)).catch(err => console.log(err));
+      newContact.save().then(user => res.json(user)).catch(err => console.log(err));
     }
   });
 
