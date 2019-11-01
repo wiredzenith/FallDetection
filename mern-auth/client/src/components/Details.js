@@ -74,11 +74,11 @@ class Details extends Component {
               </div>
               <div className="input-field col s12">
                 <PhoneInput
-                  onChange={ number => this.setState({ number }) }
-                  value={ this.state.number }
-                  erro={errors.number}
+                  //value={ this.state.number }
+                  error={errors.number}
                   id = "number"
                   type = "tel"
+                  onChange={ number => this.setState({ number }) }
                   className={classnames("", {
                     invalid: errors.number
                   })}

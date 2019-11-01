@@ -11,7 +11,7 @@ module.exports = function validateDetailsInput(data) {
   }
 // number checks
   if (Validator.isEmpty(data.number)) {
-    errors.number = "number field is required";
+    errors.number = "Number field is required";
   } else if (!Validator.isMobilePhone(data.number)) {
     errors.number = data.number + "Number is invalid";
   }
