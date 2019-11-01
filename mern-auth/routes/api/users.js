@@ -21,6 +21,7 @@ const { errors, isValid } = validateDetailsInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
+
 Contact.findOne({ number: req.body.number }).then(user => {
     if (user) {
       return res.status(400).json({ number: "Number already exists" });

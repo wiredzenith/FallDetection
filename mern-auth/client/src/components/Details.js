@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-//import {withRouter} from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {addContact} from "../actions/authActions";
 import classnames from "classnames";
 import 'react-phone-number-input/style.css'
-import PhoneInput from 'react-phone-number-input'
-import flags from 'react-phone-number-input/flags'
+import PhoneInput from 'react-phone-number-input/input'
+
 
 class Details extends Component {
   constructor() {
@@ -40,21 +40,22 @@ class Details extends Component {
     const {errors} = this.state;
     return (
       <div className="container">
-      <div className="row">
-        <div className="col s12" style={{
-            paddingLeft: "11.250px"
-          }}>
-          <h4>
-            Emergency contact info
-          </h4>
-          <p className="grey-text text-darken-1">
-            Add your contact info here to be notified in case of an emergency
-          </p>
-        </div>
-        <form className="col s8 offset-s2" noValidate onSubmit={this.onSubmit}>
-          <div className="row">
-            <div className="input-field col s6">
-              <i className="material-icons prefix">account_circle</i>
+        <div style={{ marginTop: "4rem" }} className="row">
+          <div className="col s8 offset-s2">
+            <Link to="/" className="btn-flat waves-effect">
+              <i className="material-icons left">keyboard_backspace</i> Back to
+              home
+            </Link>
+            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+              <h4>
+              Contact details
+              </h4>
+              <p className="grey-text text-darken-1">
+                Add emergency contacs below to be notified if an emergency occurs.
+              </p>
+            </div>
+            <form noValidate onSubmit={this.onSubmit}>
+              <div className="input-field col s12">
                 <input
                   onChange={this.onChange}
                   value={this.state.name}
@@ -65,40 +66,60 @@ class Details extends Component {
                     invalid: errors.name
                   })}
                 />
-              <label for="icon_prefix">First Name</label>
-            </div>
-            <div className="input-field col s6 ">
-              <PhoneInput
-                flags={flags}
-                placeholder="Enter phone number"
-                value={ this.state.value }
-                onChange={ value => this.setState({ value }) }
-                className={classnames("", {
-                  invalid: errors.number
-                })}
-                />
-            </div>
+              <label htmlFor="name">Name</label>
+                <span className="red-text">
+                  {errors.name}
+                  {errors.emailnotfound}
+                </span>
+              </div>
+              <div className="input-field col s12">
+                <PhoneInput
+                  onChange={ number => this.setState({ number }) }
+                  value={ this.state.number }
+                  erro={errors.number}
+                  id = "number"
+                  type = "tel"
+                  className={classnames("", {
+                    invalid: errors.number
+                  })}
+                  />
+                <p>{this.state.number}</p>
+                <label htmlFor="number">Phone Number</label>
+                <span className="red-text">
+                  {errors.number}
+                  {errors.numberincorrect}
+                </span>
+              </div>
+              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                <button
+                  style={{
+                    width: "150px",
+                    borderRadius: "3px",
+                    letterSpacing: "1.5px",
+                    marginTop: "1rem"
+                  }}
+                  type="submit"
+                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  >
+                  Add
+                </button>
+              </div>
+            </form>
           </div>
-          <div className="col s12" style={{
-              paddingLeft: "11.250px"
-            }}>
-            <button style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }} type="submit" className="btn btn-large waves-effect waves-light hoverable blue accent-3">
-              Add
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
-    </div>);
+    );
   }
 }
 Details.propTypes = {
   addContact: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
-const mapStateToProps = state => ({auth: state.auth});
-export default connect(mapStateToProps, {addContact})(Details);
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+export default connect(
+  mapStateToProps,
+  {addContact})(Details);
