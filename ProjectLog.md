@@ -37,13 +37,15 @@
 
 - [x] link react components using redux (part 3 of tutorial)
 
-- [ ] add more pages for adding user details such as phone number
+- [x] add more pages for adding user details such as phone number
 
-- [ ] add more elements to navbar
+- [x] add more elements to navbar
 
-- [ ] deploy web app on heroku for testing
+### 29/10/19
 
-- [ ] see if its viable to host app on my own server
+- Still working to allow users to add phone numbers to the database. the back end API is working a i can add new entries to MongoDB using post man and posting to the API. There is a bud at the moment that prevents the front-end web page from communicating with the back-end API.
+
+- [ ] Connect Front-end details page and get it communicating with back-end API.(complete by 08/11/19)
 
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
