@@ -13,6 +13,7 @@ class Navbar extends Component {
             <ul id="nav-mobile" className=" right hide-on-med-and-down">
               <li><Link to= "/Dashboard" className=" black-text">Dashboard</Link></li>
               <li><Link to= "/Details" className=" black-text">Details</Link></li>
+              <li><Link to= "/Numbers" className=" black-text">Numbers</Link></li>
             </ul>
           </div>
         </nav>

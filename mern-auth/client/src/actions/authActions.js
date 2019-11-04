@@ -7,6 +7,17 @@ import {
   USER_LOADING
 } from "./types";
 
+export const getNumbers = (userData, history) => dispatch => {
+  axios
+    .get("/api/users/numbers", userData)
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
+};
+
 export const addContact = (userData, history) => dispatch => {
   axios
     .post("/api/users/contact", userData)

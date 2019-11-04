@@ -13,6 +13,17 @@ const Contact = require("../../models/Details");
 
 
 //-----------------My Code---------------------//
+router.get("/numbers", (req, res) => {
+  Contact.find().then(contact => {
+    res.json(contact)
+
+    const payload = {
+      id: res.body.id,
+      name: res.body.name,
+      number: res.body.number
+    };
+  });
+});
 
 router.post("/contact", (req, res) => {
 
