@@ -42,6 +42,11 @@
 - finally got the API communicating with API. I'm now able to have users register log in and add phone numbers to MongoDB, this will allow me to pull user contact info to send users notifications when an event is triggered.
 - I'm continuing work on the web page and I wan to add a list of the currently stored users that have phone numbers added
 
+### 04/11/19
+
+- added new component to display users that have added emergency contact info
+- modified API to make calls to MongoDB and request users contact info, next step is to add a list on the numbers page that displays the currently stored user contact info.
+
 ### ToDo
 
 - #### mern web app
@@ -59,11 +64,6 @@
 - [ ] fix nav bar
 
 - [ ] add table to display users that have added emergency contact details
-
-### 04/11/19
-
-- added new component to display users that have added emergency contact info
-- modified API to make calls to MongoDB and request users contact info, next step is to add a list on the numbers page that displays the currently stored user contact info.
 
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
