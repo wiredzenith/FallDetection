@@ -27,6 +27,21 @@
 - continued work on mern app finished the tutorial that i was working on and the app is working as expected.
 - i want to start adding my own components to my app, such as mobile number page and user details, and more elements the the navbar. i haven't received my development board yet so i will continue on the web page till i receive that.
 
+### 29/10/19
+
+- Still working to allow users to add phone numbers to the database. the back end API is working a i can add new entries to MongoDB using post man and posting to the API. There is a bud at the moment that prevents the front-end web page from communicating with the back-end API.
+
+- [x] Connect Front-end details page and get it communicating with back-end API.(complete by 08/11/19)
+
+<kbd><strong>Bug:</strong> <del>details page unable to communicate with API</del> <strong>Solution</strong>: solution was found by testing API using post man to determine the the authenticator was not able to intemperate the number correctly when to was being sent form the front end   </kbd>
+
+<kbd><strong>Bug:</strong> <del>unable to select region</del> <strong>solution:</strong> was to remove flag selection from the input and instead manually set the region to Ireland</kbd>
+
+### 01/11/19
+
+- finally got the API communicating with API. I'm now able to have users register log in and add phone numbers to MongoDB, this will allow me to pull user contact info to send users notifications when an event is triggered.
+- I'm continuing work on the web page and I wan to add a list of the currently stored users that have phone numbers added
+
 ### ToDo
 
 - #### mern web app
@@ -41,11 +56,14 @@
 
 - [x] add more elements to navbar
 
-### 29/10/19
+- [ ] fix nav bar
 
-- Still working to allow users to add phone numbers to the database. the back end API is working a i can add new entries to MongoDB using post man and posting to the API. There is a bud at the moment that prevents the front-end web page from communicating with the back-end API.
+- [ ] add table to display users that have added emergency contact details
 
-- [ ] Connect Front-end details page and get it communicating with back-end API.(complete by 08/11/19)
+### 04/11/19
+
+- added new component to display users that have added emergency contact info
+- modified API to make calls to MongoDB and request users contact info, next step is to add a list on the numbers page that displays the currently stored user contact info.
 
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
