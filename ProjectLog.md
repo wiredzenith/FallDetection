@@ -1,5 +1,3 @@
-[markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
-
 ### 14/10/19
 
 - started logging project progress
@@ -20,7 +18,7 @@
 
 ### 21/10/19
 
-- continuing work on the [mern tutorial][l3], i have a login, and register page now i am planning to have the mer tutorial finished by the end of the week or Monday at the latest.
+- continuing work on the [mern tutorial][l3], i have a login, and register page now i am planning to have the MERN tutorial finished by the end of the week or Monday at the latest.
 
 ### 22/10/19
 
@@ -61,7 +59,7 @@
 
 - [x] add more elements to navbar
 
-- [ ] fix nav bar
+- [ ] fix Nav bar(menu items disappear when resizing page)
 
 - [ ] add table to display users that have added emergency contact details
 
