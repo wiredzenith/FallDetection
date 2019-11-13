@@ -45,6 +45,10 @@
 - added new component to display users that have added emergency contact info
 - modified API to make calls to MongoDB and request users contact info, next step is to add a list on the numbers page that displays the currently stored user contact info.
 
+### 08/11/19
+
+- Final revived my ATmega 324PB Xplaned Pro development board. I have set up my development environment using atmel studio to develop for this board. First thing i have done is run an example program that turns on an led when the onboard button is pressed, and that seems to work. Next step is to make sense of the API documentation for the board and get some of the other features working such as USART and test the GPIO functions iv given my self the rest of the week to play around with the board, then i will have to start on getting the I2C functions working and start getting reading from the fall detection sensor.
+
 ### ToDo
 
 - #### mern web app
@@ -59,9 +63,16 @@
 
 - [x] add more elements to navbar
 
-- [ ] fix Nav bar(menu items disappear when resizing page)
+_(These items are currently on hold while I begin work on the ATmega 324BP)_
 
-- [ ] add table to display users that have added emergency contact details
+> - [ ] fix Nav bar(menu items disappear when resizing page)(This item is currently on hold while I begin work on the ATmega 324BP)
+> - [ ] add table to display users that have added emergency contact details(This item is currently on hold while I begin work on the ATmega 324BP)
+
+- [x] Test ATmega examples.
+
+- [ ] Test GPIO ports with my own functions.
+
+- [ ]Start working on I2C functions.
 
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
