@@ -35,16 +35,6 @@ int main (void)
 	/* Insert system clock initialization code here (sysclk_init()). */
 
 	board_init();
-	
-	bool button_state;
-	while(1){
-		button_state = ioport_get_pin_level(GPIO_PUSH_BUTTON_0);
-		if(button_state){
-			LED_Off(LED0);
-			}else{
-			LED_On(LED0);
-		}
-	}
 
 	/* Insert application code here, after the board has been initialized. */
 }
