@@ -51,7 +51,7 @@
 
 ### 03/12/19
 
-- Back working on the ATmega 324PB and i have managed to configure a new project with SPI and USART currently testing simple GPIO function such as turning leds on reading from switches and so on, next i will continue work on the SPI and start getting reading back from the accelerometer 
+- Back working on the ATmega 324PB and i have managed to configure a new project with SPI and USART currently testing simple GPIO function such as turning leds on reading from switches and so on, next i will continue work on the SPI and start getting reading back from the accelerometer.
 
 ### ToDo
 
@@ -76,7 +76,9 @@ _(These items are currently on hold while I begin work on the ATmega 324BP)_
 
 - [x] Test GPIO ports with my own functions.
 
-- [x]Start working on SPI functions.
+- [ ] Start working on SPI functions.
+
+
 
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
