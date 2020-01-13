@@ -36,6 +36,12 @@
 #include "driver_init.h"
 #include <system.h>
 
+/* configure pins and initialize registers */
+void I2C_0_initialization(void)
+{
+	I2C_0_init();
+}
+
 /* configure the pins and initialize the registers */
 void SPI_0_initialization(void)
 {
@@ -107,6 +113,30 @@ void system_init()
 {
 	mcu_init();
 
+	/* PORT setting on PA7 */
+
+	// Set pin direction to output
+	EDBG_SS_set_dir(PORT_DIR_OUT);
+
+	EDBG_SS_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    true);
+
+	/* PORT setting on PB4 */
+
+	// Set pin direction to output
+	SPI_SS_A_set_dir(PORT_DIR_OUT);
+
+	SPI_SS_A_set_level(
+	    // <y> Initial level
+	    // <id> pad_initial_level
+	    // <false"> Low
+	    // <true"> High
+	    true);
+
 	/* PORT setting on PC6 */
 
 	// Set pin direction to input
@@ -132,6 +162,8 @@ void system_init()
 	    false);
 
 	sysctrl_init();
+
+	I2C_0_initialization();
 
 	SPI_0_initialization();
 

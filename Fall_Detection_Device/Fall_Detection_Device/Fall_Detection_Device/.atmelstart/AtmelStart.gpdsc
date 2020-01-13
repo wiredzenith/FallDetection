@@ -38,6 +38,7 @@
       <RTE_Components_h>#define ATMEL_START</RTE_Components_h>
       <files>
         <file category="doc" condition="ARMCC, GCC, IAR" name="modules/spi/doc/spi_basic.rst"/>
+        <file category="doc" condition="ARMCC, GCC, IAR" name="modules/twi/doc/twi.rst"/>
         <file category="doc" condition="ARMCC, GCC, IAR" name="modules/usart/doc/usart_basic.rst"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="utils/setbaud.h"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="main.c"/>
@@ -48,21 +49,31 @@
         <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/mainpage.dox"/>
         <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/generator/doxyfile.doxygen"/>
         <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/generator/DoxygenLayout.xml"/>
+        <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/i2c.dox"/>
+        <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/i2c_master.dox"/>
         <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/spi.dox"/>
         <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/spi_basic.dox"/>
         <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/system.dox"/>
         <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/usart.dox"/>
         <file category="other" condition="ARMCC, GCC, IAR" name="doxygen/usart_basic.dox"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="examples/include/i2c_master_example.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="examples/include/spi_basic_example.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="examples/include/usart_basic_example.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="examples/src/i2c_master_example.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="examples/src/spi_basic_example.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="examples/src/usart_basic_example.c"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="include/i2c_master.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="include/i2c_simple_master.h"/>
+        <file category="header" condition="ARMCC, GCC, IAR" name="include/i2c_types.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="include/port.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="include/protected_io.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="include/spi_basic.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="include/sysctrl.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="include/system.h"/>
         <file category="header" condition="ARMCC, GCC, IAR" name="include/usart_basic.h"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="src/i2c_master.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="src/i2c_simple_master.c"/>
+        <file category="source" condition="ARMCC, GCC, IAR" name="src/i2c_types.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="src/protected_io.S"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="src/spi_basic.c"/>
         <file category="source" condition="ARMCC, GCC, IAR" name="src/usart_basic.c"/>

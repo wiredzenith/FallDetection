@@ -24,8 +24,9 @@ examples/src/spi_basic_example.d examples/src/spi_basic_example.o: \
  ../Config/clock_config.h ../include/port.h ../include/atmel_start_pins.h \
  ../include/sysctrl.h ../utils/atomic.h ../include/protected_io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sleep.h \
- ../include/spi_basic.h ../include/usart_basic.h \
- ../include/atmel_start_pins.h ../examples/include/spi_basic_example.h
+ ../include/i2c_master.h ../include/i2c_types.h ../include/spi_basic.h \
+ ../include/usart_basic.h ../include/atmel_start_pins.h \
+ ../examples/include/spi_basic_example.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 
@@ -86,6 +87,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../include/protected_io.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sleep.h:
+
+../include/i2c_master.h:
+
+../include/i2c_types.h:
 
 ../include/spi_basic.h:
 
