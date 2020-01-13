@@ -47,11 +47,15 @@
 
 ### 08/11/19
 
-- Final revived my ATmega 324PB Xplaned Pro development board. I have set up my development environment using atmel studio to develop for this board. First thing i have done is run an example program that turns on an led when the onboard button is pressed, and that seems to work. Next step is to make sense of the API documentation for the board and get some of the other features working such as USART and test the GPIO functions iv given my self the rest of the week to play around with the board, then i will have to start on getting the I2C functions working and start getting reading from the fall detection sensor.
+- Final received my ATmega 324PB Xplaned Pro development board. I have set up my development environment using atmel studio to develop for this board. First thing i have done is run an example program that turns on an led when the onboard button is pressed, and that seems to work. Next step is to make sense of the API documentation for the board and get some of the other features working such as USART and test the GPIO functions iv given my self the rest of the week to play around with the board, then i will have to start on getting the I2C functions working and start getting reading from the fall detection sensor.
 
 ### 03/12/19
 
+<<<<<<< HEAD
 - Back working on the ATmega 324PB and i have managed to configure a new project with SPI and USART currently testing simple GPIO function such as turning leds on reading from switches and so on, next i will continue work on the SPI and start getting reading back from the accelerometer.
+=======
+- Back working on the ATmega 324PB and i have managed to configure a new project with SPI and USART currently testing simple GPIO function such as turning leds on reading from switches and so on, next i will continue work on the SPI and start getting reading back from the accelerometer
+>>>>>>> d191f2d40af1090cd67a900b3d2b1a38e4e45739
 
 ### ToDo
 
@@ -77,8 +81,11 @@ _(These items are currently on hold while I begin work on the ATmega 324BP)_
 - [x] Test GPIO ports with my own functions.
 
 - [ ] Start working on SPI functions.
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> d191f2d40af1090cd67a900b3d2b1a38e4e45739
 
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
