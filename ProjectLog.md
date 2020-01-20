@@ -78,6 +78,22 @@ _(These items are currently on hold while I begin work on the ATmega 324BP)_
 
 - [ ] Start working on SPI functions.
 
+### Project introduction
+
+explanation of what my project is and my reason for choosing it.
+
+### Technology's used in my project
+
+react, node , express, MongoDB (MERN). ATmega 324PB. analog devices accelerator ADXL345 GPS, GSM, Bluetooth
+
+### Demo
+
+MERN wep app atmega SPI
+
+### Project plan
+
+OpenProject gant chart
+
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
 [l3]: https://blog.bitsrc.io/build-a-login-auth-app-with-mern-stack-part-1-c405048e3669 "new mern tutorial for authentication app"

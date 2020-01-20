@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link , Redirect} from "react-router-dom";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {addContact} from "../actions/authActions";
 import classnames from "classnames";
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input/input'
-
 
 class Details extends Component {
   constructor() {
@@ -29,14 +28,15 @@ class Details extends Component {
     });
   };
   onSubmit = e => {
-    e.preventDefault();
     const newContact = {
       name: this.state.name,
       number: this.state.number
+
     };
     this.props.addContact(newContact, this.props.history);
   };
   render() {
+
     const {errors} = this.state;
     return (
       <div className="container">

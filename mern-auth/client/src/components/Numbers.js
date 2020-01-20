@@ -5,9 +5,7 @@ import { connect } from "react-redux";
 import { getNumbers } from "../actions/authActions";
 
 class Numbers extends Component {
-  onLogoutClick = e => {
-    e.preventDefault();
-  };
+  
   UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({errors: nextProps.errors});
