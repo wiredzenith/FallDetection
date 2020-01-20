@@ -51,13 +51,13 @@
 
 ### 03/12/19
 
-<<<<<<< HEAD
-- Back working on the ATmega 324PB and i have managed to configure a new project with SPI and USART currently testing simple GPIO function such as turning leds on reading from switches and so on, next i will continue work on the SPI and start getting reading back from the accelerometer.
-=======
 - Back working on the ATmega 324PB and i have managed to configure a new project with SPI and USART currently testing simple GPIO function such as turning leds on reading from switches and so on, next i will continue work on the SPI and start getting reading back from the accelerometer
->>>>>>> d191f2d40af1090cd67a900b3d2b1a38e4e45739
 
-### ToDo
+### 20/01/19
+
+- I have made a small amount of progress with the spi communication on the atmel 324\. but im not feeling that this is enough progress. i have decided to try insted the ESP32 development board and i seem to be making progress
+
+#### ToDo
 
 - #### mern web app
 
@@ -80,26 +80,21 @@ _(These items are currently on hold while I begin work on the ATmega 324BP)_
 
 - [x] Test GPIO ports with my own functions.
 
-- [ ] Start working on SPI functions.
-<<<<<<< HEAD
+- [ ] ~~Start working on SPI functions. (abandoned)~~
 
-
-=======
->>>>>>> d191f2d40af1090cd67a900b3d2b1a38e4e45739
-
-### Project introduction
+#### Project introduction
 
 explanation of what my project is and my reason for choosing it.
 
-### Technology's used in my project
+#### Technology's used in my project
 
 react, node , express, MongoDB (MERN). ATmega 324PB. analog devices accelerator ADXL345 GPS, GSM, Bluetooth
 
-### Demo
+#### Demo
 
 MERN wep app atmega SPI
 
-### Project plan
+#### Project plan
 
 OpenProject gant chart
 
