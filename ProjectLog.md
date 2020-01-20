@@ -51,7 +51,11 @@
 
 ### 03/12/19
 
+<<<<<<< HEAD
+- Back working on the ATmega 324PB and i have managed to configure a new project with SPI and USART currently testing simple GPIO function such as turning leds on reading from switches and so on, next i will continue work on the SPI and start getting reading back from the accelerometer.
+=======
 - Back working on the ATmega 324PB and i have managed to configure a new project with SPI and USART currently testing simple GPIO function such as turning leds on reading from switches and so on, next i will continue work on the SPI and start getting reading back from the accelerometer
+>>>>>>> d191f2d40af1090cd67a900b3d2b1a38e4e45739
 
 ### ToDo
 
@@ -77,6 +81,11 @@ _(These items are currently on hold while I begin work on the ATmega 324BP)_
 - [x] Test GPIO ports with my own functions.
 
 - [ ] Start working on SPI functions.
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> d191f2d40af1090cd67a900b3d2b1a38e4e45739
 
 ### Project introduction
 

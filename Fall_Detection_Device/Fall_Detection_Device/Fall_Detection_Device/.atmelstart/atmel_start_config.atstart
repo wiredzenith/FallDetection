@@ -53,6 +53,20 @@ drivers:
           external: false
           external_frequency: 0
         configuration: {}
+  I2C_0:
+    user_label: I2C_0
+    definition: Atmel:ATMega324PB_drivers:1.0.0::ATmega324PB-MUR::TWI0::driver_config_definition::Interrupt::Drivers:I2C:Master
+    functionality: I2C
+    api: Drivers:I2C:Master
+    configuration:
+      twi_bit_rate: 100000
+      twi_twcr0_twea: false
+      twi_twcr0_twen: true
+      twi_twcr0_twie: true
+    optional_signals: []
+    variant: null
+    clocks:
+      domain_group: null
   SPI_0:
     user_label: SPI_0
     definition: Atmel:ATMega324PB_drivers:1.0.0::ATmega324PB-MUR::SPI0::driver_config_definition::SPI.Master.Interrupt::Drivers:SPI:Basic
@@ -174,6 +188,20 @@ pads:
     mode: Digital output
     user_label: USER_LED0
     configuration: null
+  EDBG_SS:
+    name: PA7
+    definition: Atmel:ATMega324PB_drivers:1.0.0::ATmega324PB-MUR::pad::PA7
+    mode: Digital output
+    user_label: EDBG_SS
+    configuration:
+      pad_initial_level: High
+  SPI_SS_A:
+    name: PB4
+    definition: Atmel:ATMega324PB_drivers:1.0.0::ATmega324PB-MUR::pad::PB4
+    mode: Digital output
+    user_label: SPI_SS_A
+    configuration:
+      pad_initial_level: High
 toolchain_options:
 - definition:
     identifier: Atmel:ATMega324PB_drivers:1.0.0::ATmega324PB-MUR::environment_definition::All:Atmel.Studio:7.0.0

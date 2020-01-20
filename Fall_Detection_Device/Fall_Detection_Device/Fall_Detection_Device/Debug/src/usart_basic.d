@@ -21,10 +21,11 @@ src/usart_basic.d src/usart_basic.o: ../src/usart_basic.c \
  ../include/driver_init.h ../include/port.h ../include/atmel_start_pins.h \
  ../include/sysctrl.h ../utils/atomic.h ../include/protected_io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sleep.h \
- ../include/spi_basic.h ../include/atmel_start_pins.h \
+ ../include/i2c_master.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- ../utils/setbaud.h
+ ../include/i2c_types.h ../include/spi_basic.h \
+ ../include/atmel_start_pins.h ../utils/setbaud.h
 
 ../utils/compiler.h:
 
@@ -82,12 +83,16 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sleep.h:
 
-../include/spi_basic.h:
-
-../include/atmel_start_pins.h:
+../include/i2c_master.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
+
+../include/i2c_types.h:
+
+../include/spi_basic.h:
+
+../include/atmel_start_pins.h:
 
 ../utils/setbaud.h:

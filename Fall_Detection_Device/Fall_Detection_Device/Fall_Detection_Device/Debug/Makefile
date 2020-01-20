@@ -40,12 +40,11 @@ SUBDIRS :=  \
 ../examples/include/ \
 ../examples/src/ \
 ../include/ \
-../include/libraries/ \
-../include/libraries/SPI/ \
-../include/libraries/SPI/src/ \
 ../modules/ \
 ../modules/spi/ \
 ../modules/spi/doc/ \
+../modules/twi/ \
+../modules/twi/doc/ \
 ../modules/usart/ \
 ../modules/usart/doc/ \
 ../src/ \
@@ -60,10 +59,14 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../atmel_start.c \
 ../driver_isr.c \
+../examples/src/i2c_master_example.c \
 ../examples/src/spi_basic_example.c \
 ../examples/src/usart_basic_example.c \
 ../main.c \
 ../src/driver_init.c \
+../src/i2c_master.c \
+../src/i2c_simple_master.c \
+../src/i2c_types.c \
 ../src/spi_basic.c \
 ../src/usart_basic.c
 
@@ -78,10 +81,14 @@ ASM_SRCS +=
 OBJS +=  \
 atmel_start.o \
 driver_isr.o \
+examples/src/i2c_master_example.o \
 examples/src/spi_basic_example.o \
 examples/src/usart_basic_example.o \
 main.o \
 src/driver_init.o \
+src/i2c_master.o \
+src/i2c_simple_master.o \
+src/i2c_types.o \
 src/protected_io.o \
 src/spi_basic.o \
 src/usart_basic.o
@@ -89,10 +96,14 @@ src/usart_basic.o
 OBJS_AS_ARGS +=  \
 atmel_start.o \
 driver_isr.o \
+examples/src/i2c_master_example.o \
 examples/src/spi_basic_example.o \
 examples/src/usart_basic_example.o \
 main.o \
 src/driver_init.o \
+src/i2c_master.o \
+src/i2c_simple_master.o \
+src/i2c_types.o \
 src/protected_io.o \
 src/spi_basic.o \
 src/usart_basic.o
@@ -100,10 +111,14 @@ src/usart_basic.o
 C_DEPS +=  \
 atmel_start.d \
 driver_isr.d \
+examples/src/i2c_master_example.d \
 examples/src/spi_basic_example.d \
 examples/src/usart_basic_example.d \
 main.d \
 src/driver_init.d \
+src/i2c_master.d \
+src/i2c_simple_master.d \
+src/i2c_types.d \
 src/protected_io.d \
 src/spi_basic.d \
 src/usart_basic.d
@@ -111,10 +126,14 @@ src/usart_basic.d
 C_DEPS_AS_ARGS +=  \
 atmel_start.d \
 driver_isr.d \
+examples/src/i2c_master_example.d \
 examples/src/spi_basic_example.d \
 examples/src/usart_basic_example.d \
 main.d \
 src/driver_init.d \
+src/i2c_master.d \
+src/i2c_simple_master.d \
+src/i2c_types.d \
 src/protected_io.d \
 src/spi_basic.d \
 src/usart_basic.d
@@ -147,6 +166,13 @@ LINKER_SCRIPT_DEP+=
 	@echo Finished building: $<
 	
 
+examples/src/i2c_master_example.o: ../examples/src/i2c_master_example.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I".." -I"../Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega324pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\gcc\dev\atmega324pb" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 examples/src/spi_basic_example.o: ../examples/src/spi_basic_example.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -169,6 +195,27 @@ examples/src/usart_basic_example.o: ../examples/src/usart_basic_example.c
 	
 
 src/driver_init.o: ../src/driver_init.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I".." -I"../Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega324pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\gcc\dev\atmega324pb" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/i2c_master.o: ../src/i2c_master.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I".." -I"../Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega324pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\gcc\dev\atmega324pb" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/i2c_simple_master.o: ../src/i2c_simple_master.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I".." -I"../Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega324pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\gcc\dev\atmega324pb" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/i2c_types.o: ../src/i2c_types.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I".." -I"../Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega324pb -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.4.331\gcc\dev\atmega324pb" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

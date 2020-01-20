@@ -11,6 +11,130 @@
 #include <port.h>
 
 /**
+ * \brief Set EDBG_SS pull mode
+ *
+ * Configure pin to pull up, down or disable pull mode, supported pull
+ * modes are defined by device used
+ *
+ * \param[in] pull_mode Pin pull mode
+ */
+static inline void EDBG_SS_set_pull_mode(const enum port_pull_mode pull_mode)
+{
+	PORTA_set_pin_pull_mode(7, pull_mode);
+}
+
+/**
+ * \brief Set EDBG_SS data direction
+ *
+ * Select if the pin data direction is input, output or disabled.
+ * If disabled state is not possible, this function throws an assert.
+ *
+ * \param[in] direction PORT_DIR_IN  = Data direction in
+ *                      PORT_DIR_OUT = Data direction out
+ *                      PORT_DIR_OFF = Disables the pin
+ *                      (low power state)
+ */
+static inline void EDBG_SS_set_dir(const enum port_dir dir)
+{
+	PORTA_set_pin_dir(7, dir);
+}
+
+/**
+ * \brief Set EDBG_SS level
+ *
+ * Sets output level on a pin
+ *
+ * \param[in] level true  = Pin level set to "high" state
+ *                  false = Pin level set to "low" state
+ */
+static inline void EDBG_SS_set_level(const bool level)
+{
+	PORTA_set_pin_level(7, level);
+}
+
+/**
+ * \brief Toggle output level on EDBG_SS
+ *
+ * Toggle the pin level
+ */
+static inline void EDBG_SS_toggle_level()
+{
+	PORTA_toggle_pin_level(7);
+}
+
+/**
+ * \brief Get level on EDBG_SS
+ *
+ * Reads the level on a pin
+ */
+static inline bool EDBG_SS_get_level()
+{
+	return PORTA_get_pin_level(7);
+}
+
+/**
+ * \brief Set SPI_SS_A pull mode
+ *
+ * Configure pin to pull up, down or disable pull mode, supported pull
+ * modes are defined by device used
+ *
+ * \param[in] pull_mode Pin pull mode
+ */
+static inline void SPI_SS_A_set_pull_mode(const enum port_pull_mode pull_mode)
+{
+	PORTB_set_pin_pull_mode(4, pull_mode);
+}
+
+/**
+ * \brief Set SPI_SS_A data direction
+ *
+ * Select if the pin data direction is input, output or disabled.
+ * If disabled state is not possible, this function throws an assert.
+ *
+ * \param[in] direction PORT_DIR_IN  = Data direction in
+ *                      PORT_DIR_OUT = Data direction out
+ *                      PORT_DIR_OFF = Disables the pin
+ *                      (low power state)
+ */
+static inline void SPI_SS_A_set_dir(const enum port_dir dir)
+{
+	PORTB_set_pin_dir(4, dir);
+}
+
+/**
+ * \brief Set SPI_SS_A level
+ *
+ * Sets output level on a pin
+ *
+ * \param[in] level true  = Pin level set to "high" state
+ *                  false = Pin level set to "low" state
+ */
+static inline void SPI_SS_A_set_level(const bool level)
+{
+	PORTB_set_pin_level(4, level);
+}
+
+/**
+ * \brief Toggle output level on SPI_SS_A
+ *
+ * Toggle the pin level
+ */
+static inline void SPI_SS_A_toggle_level()
+{
+	PORTB_toggle_pin_level(4);
+}
+
+/**
+ * \brief Get level on SPI_SS_A
+ *
+ * Reads the level on a pin
+ */
+static inline bool SPI_SS_A_get_level()
+{
+	return PORTB_get_pin_level(4);
+}
+
+/**
  * \brief Set PB5 pull mode
  *
  * Configure pin to pull up, down or disable pull mode, supported pull
