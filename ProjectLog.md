@@ -53,9 +53,13 @@
 
 - Back working on the ATmega 324PB and i have managed to configure a new project with SPI and USART currently testing simple GPIO function such as turning leds on reading from switches and so on, next i will continue work on the SPI and start getting reading back from the accelerometer
 
-### 20/01/19
+### 20/01/20
 
-- I have made a small amount of progress with the spi communication on the atmel 324\. but im not feeling that this is enough progress. i have decided to try insted the ESP32 development board and i seem to be making progress
+- I have made a small amount of progress with the spi communication on the atmel 324\. but im not feeling that this is enough progress. I have decided to try instead the ESP32 development board and i seem to be making progress.
+
+### 03/02/20
+
+- Over the last two weeks I have been working more on the communication between the ESP32 and the ADXL345 in order to be able to detect falls, the ADXL345 and the ability to detect free fall velocity after being configured to do so i will be able to issue an interrupt to the ESP32 and then measure the time of the free fall and read the orientation of the sensor then establish if a fall has occurred. Over the last few weeks i have been having trouble with the technologies I chose initially, so i have chosen to switch gears and after some research and testing I have installed micro python on the ESP32 and i think this is the direction i will now take. I am no longer trying to use SPI communication but instead using i2c. for testing the ESP32 functions i have a direct communication between the board and my IDE called repl (Read–eval–print loop). this allows me to test my code without the need to compile and upload code every time I make a change. At the moment i have built a circuit to test the external hardware interrupt functions of the ESP32.over the next few weeks 03/02 till 17/02 i will focus on the configuration of the ADXL345 via i2c and begin testing.
 
 #### ToDo
 
@@ -82,13 +86,17 @@ _(These items are currently on hold while I begin work on the ATmega 324BP)_
 
 - [ ] ~~Start working on SPI functions. (abandoned)~~
 
+- [x] build physical circuit for testing hardware interrupts.
+
+- [ ] configure ADXL345 for issuing interrupts on a free fall.
+
 #### Project introduction
 
 explanation of what my project is and my reason for choosing it.
 
 #### Technology's used in my project
 
-react, node , express, MongoDB (MERN). ATmega 324PB. analog devices accelerator ADXL345 GPS, GSM, Bluetooth
+react, node , express, MongoDB (MERN). ATmega 324PB. analog devices accelerator ADXL345, GSM
 
 #### Demo
 
