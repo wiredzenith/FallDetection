@@ -4,31 +4,33 @@
 #import webrepl
 #webrepl.start()
 
+import GSM_Funct
 from machine import Pin
 from machine import Timer
-from time import sleep_ms
 
 
 def timerIrq_0(timer):
-    if (RED_LED.value() == 1):
+    if (RED_LED.value() == True):
         RED_LED.value(0)
     else:
         RED_LED.value(1)
 
 
-def handle_interrupt(pin):
+def SW_interrupt(pin):
     print('SW Pressed')
+    GSM_Funct.send_SMS()
     if (GRN_LED.value() == 1):
         GRN_LED.value(0)
     else:
         GRN_LED.value(1) 
 
 
-RED_LED = Pin(13, Pin.OUT)  # create output
-GRN_LED = Pin(12, Pin.OUT)  # create output
-SW = Pin(22, Pin.IN,
-         Pin.PULL_UP)  #create pin 15 and set it as input and enable pull up
-SW.irq(trigger=Pin.IRQ_FALLING, handler=handle_interrupt)
+RED_LED = Pin(13, Pin.INOUT)  # create output
+GRN_LED = Pin(12, Pin.INOUT)  # create output
+
+#create pin 22 and set it as input and enable pull up
+SW = Pin(14, Pin.IN,Pin.PULL_UP,trigger=Pin.IRQ_FALLING, handler=SW_interrupt,debounce=200) 
+
 timer0 = Timer(0)
 timer0.init(period=200, mode=Timer.PERIODIC, callback=timerIrq_0)
 
