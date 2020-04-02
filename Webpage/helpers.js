@@ -1,5 +1,4 @@
 const request = require('request');
-const User = require('./models/users');
 const Contacts = require('./models/contacts');
 
 /*

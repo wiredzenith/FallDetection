@@ -7,12 +7,9 @@ var logger = require('morgan');
 
 // routers
 var indexRouter = require('./routes/index');
-var playerRouter = require('./routes/player');
-var statsRouter = require('./routes/stats');
 var authRouter = require('./routes/auth');
-var modsRouter = require('./routes/mods');
-var logsRouter = require('./routes/logs');
-var notFoundRouter = require('./routes/logs');
+var contactsRouter = require('./routes/contacts');
+var notFoundRouter = require('./routes/notFound')
 
 
 const passport = require('passport');
@@ -27,13 +24,13 @@ var app = express();
 var exphbs  = require('express-handlebars');
 
 var http = require('http').createServer(app);
-var io = require('socket.io')(http, {origins: '*:*'});
 
 app.engine('handlebars', exphbs({
     partialsDir: __dirname + '/views/partials/'
 }));
 
 var hbs = require('handlebars');
+
 hbs.registerHelper("inc", function(value, options)
 {
     return parseInt(value) + 1;
@@ -63,11 +60,8 @@ app.use(methodOverride('_method'));
 
 // routers
 app.use('/', indexRouter);
-app.use('/player', playerRouter);
 app.use('/auth', authRouter);
-app.use('/stats', statsRouter);
-app.use('/mods', modsRouter);
-app.use('/logs', logsRouter);
+app.use('/contacts', contactsRouter);
 app.use('/notFound', notFoundRouter);
 
 var mongoose = require('mongoose');

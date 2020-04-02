@@ -1,72 +1,44 @@
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <span class="brand-text font-weight-light">MCMonitor</span>
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a href="/" class="brand-link">
+      <img src="https://eu.ui-avatars.com/api/?background=0D8ABC&color=fff&name=FF" alt="User Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Ffeather Fall</span>
     </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="/" class="nav-link {{#if active_dashboard}}active{{/if}}">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Dashboard
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="players" class="nav-link {{#if active_players}}active{{/if}}">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Players
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="chatlog" class="nav-link {{#if active_chatlog}}active{{/if}}">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                Chat Log
-              </p>
-            </a>
-          </li>
-          <li class="nav-item has-treeview {{#if active_server}}menu-open{{/if}}">
-            <a href="#" class="nav-link {{#if active_server}}active{{/if}}">
-              <i class="nav-icon fas fa-server"></i>
-              <p>
-                Server
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="stats" class="nav-link {{#if active_stats}}active{{/if}}">
-                  <i class="fa fa-poll nav-icon"></i>
-                  <p>Stats</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="mods" class="nav-link {{#if active_mods}}active{{/if}}">
-                  <i class="fa fa-mountain nav-icon"></i>
-                  <p>Mods</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="logs" class="nav-link {{#if active_logs}}active{{/if}}">
-                  <i class="fa fa-file-alt nav-icon"></i>
-                  <p>Logs</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-      </nav>
-      <!-- /.sidebar-menu -->
+  <div class="user-panel mt-3 pb-3 pl-2 mb-3 d-flex">
+    <div class="image">
+      <img src="https://api.adorable.io/avatars/32/{{{currentUser}}}.png" class="img-circle elevation-2" alt="User Image">
     </div>
-    <!-- /.sidebar -->
-  </aside>
+    <div class="info">
+      <a href="#" class="d-block text-light">{{{currentUser}}}</a>
+    </div>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <a href="/" class="nav-link {{#if active_dashboard}}active{{/if}}">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/contacts" class="nav-link {{#if active_chatlog}}active{{/if}}">
+            <i class="nav-icon fas fa-user-alt"></i>
+            <p>
+              Contacts
+            </p>
+          </a>
+        </li>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

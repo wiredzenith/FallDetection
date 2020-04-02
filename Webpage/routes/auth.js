@@ -5,7 +5,6 @@ const passport = require('passport');
 var auth = require('../middleware/check-auth');
 var checkAuthenticated = auth.checkAuthenticated;
 var checkNotAuthenticated = auth.checkNotAuthenticated;
-
 const helpers = require('../helpers');
 
 router.get('/login', checkNotAuthenticated, function (req, res, next) {
