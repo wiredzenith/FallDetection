@@ -37,15 +37,17 @@
               <table id="contacts_page" class="table table-bordered table-striped">
                 <thead> 
                   <tr>
-                    <th>No.</th>
-                    <th>Mod Name</th>
-                    <th>Version</th>
+                    <th>Remove</th>
+                    <th>Name</th>
+                    <th>Number</th>
                   </tr>
                 </thead>
                 <tbody>
                   {{#each contact}}
                   <tr>
-                    <td> {{inc @index}}</td>
+                    <td> 
+                      <button onclick="removeContact()" class="fa fa-times"></button>
+                      </td>
 
                     <td>{{name}}</td>
 
@@ -55,9 +57,9 @@
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>No.</th>
-                    <th>Mod Name</th>
-                    <th>Version</th>
+                    <th>Remove</th>
+                    <th>Name</th>
+                    <th>Number</th>
                   </tr>
                 </tfoot>
               </table>

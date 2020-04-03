@@ -3,8 +3,11 @@ var router = express.Router();
 const passport = require('passport');
 
 var auth = require('../middleware/check-auth');
+var validation = require('../middleware/validation');
+
 var checkAuthenticated = auth.checkAuthenticated;
 var checkNotAuthenticated = auth.checkNotAuthenticated;
+var validateRegistration = validation.validateRegistration
 const helpers = require('../helpers');
 
 router.get('/login', checkNotAuthenticated, function (req, res, next) {
@@ -24,6 +27,22 @@ router.get('/login', checkNotAuthenticated, function (req, res, next) {
         });
     });
 });
+
+router.get('/register', checkNotAuthenticated, function (req, res, next) {
+
+    res.render('register', {
+        bodyClasses: "hold-transition login-page",
+        navbar: false,
+        sidebar: false,
+        footer: false
+    });
+});
+
+router.post('/register', checkNotAuthenticated, function (req, res, next) {
+    res.json(validateRegistration(req))
+});
+
+
 router.post('/login', checkNotAuthenticated, passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/auth/login',

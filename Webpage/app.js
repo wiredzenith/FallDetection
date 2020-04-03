@@ -66,7 +66,7 @@ app.use('/notFound', notFoundRouter);
 
 var mongoose = require('mongoose');
 mongoose.connect("mongodb+srv://"+ process.env.MONGO_DB_USER + ":" + process.env.MONGO_DB_PASSWORD + "@cluster0-zd1ck.mongodb.net/test?retryWrites=true&w=majority",
-{useNewUrlParser: true})
+{useNewUrlParser: true, useUnifiedTopology: true})
 .then(function () {
     return console.log("---MongoDB successfully connected---");
   })
