@@ -17,12 +17,16 @@ const db = require("./config/keys").mongoURI;
 mongoose
   .connect(
     db,
-    {useUnifiedTopology: true ,useNewUrlParser: true }
+    { useUnifiedTopology: true, useNewUrlParser: true }
   )
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
+  .then(function () {
+    return console.log("MongoDB successfully connected");
+  })
+  .catch(function (err) {
+    return console.log(err);
+  });
 
-  // Passport middleware
+// Passport middleware
 app.use(passport.initialize());
 // Passport config
 require("./config/passport")(passport);
@@ -30,4 +34,6 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
-app.listen(port, () => console.log(`Server up and at it, on port... ${port} :)`));
+app.listen(port, () => {
+  return console.log(`Server up and at it, on port... ${port} :)`);
+});

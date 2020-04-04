@@ -1,0 +1,106 @@
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/"><b>Feather</b>Fall</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card bg-gradient-danger">
+
+    {{#if messages.error}}
+    <div class="card-header text-right">
+      <h3 class="card-title">{{{messages.error}}}</h3>
+      <div class="icon">
+        <i class="fa fa-exclamation-circle"></i>
+      </div>
+    </div>
+    {{/if}}
+
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+      <form action="/auth/login" method="post">
+        <div class="input-group mb-3">
+          <input type="username" class="form-control" placeholder="Username" id="username" name="username">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-user"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password" id="password" name="password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+
+          <!-- /.col -->
+        </div>
+      </form>
+      <p class="mb-0">
+        <a href="/auth/register" class="text-center">Register a new membership</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+  <div class="row">
+    <div class="col-lg-4 col-6">
+      <!-- small box -->
+      <div class="small-box bg-gradient-warning">
+        <div class="inner">
+          <h3>{{stats.noOfMods}}</h3>
+
+          <p>Mods</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-mountain"></i>
+        </div>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-6">
+      <!-- small box -->
+      <div class="small-box bg-gradient-info">
+        <div class="inner">
+          <h3>{{stats.totalPlayers}}</h3>
+
+          <p>Users</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-users"></i>
+        </div>
+      </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-4 col-6">
+      <!-- small box -->
+      <div class="small-box bg-gradient-success">
+        <div class="inner">
+          <h3>{{stats.noPlayersOnline}}</h3>
+
+          <p>Online Users</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-child"></i>
+        </div>
+      </div>
+    </div>
+    <!-- ./col -->
+
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.login-box -->

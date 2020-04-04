@@ -1,0 +1,11 @@
+#whitelistMessage {
+  margin-top: 10px;
+}
+
+.direct-chat-messages {
+    height: 70vh; /* 70% of view port */
+}
+
+.direct-chat-text {
+  margin: 5px 0 0 0;
+}
