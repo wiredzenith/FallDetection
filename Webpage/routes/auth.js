@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const passport = require('passport');
+const Account = require('../models/accounts');
+
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 var auth = require('../middleware/check-auth');
 var validation = require('../middleware/validation');
@@ -30,6 +34,7 @@ router.get('/login', checkNotAuthenticated, function (req, res, next) {
 
 router.get('/register', checkNotAuthenticated, function (req, res, next) {
 
+
     res.render('register', {
         bodyClasses: "hold-transition login-page",
         navbar: false,
@@ -39,7 +44,34 @@ router.get('/register', checkNotAuthenticated, function (req, res, next) {
 });
 
 router.post('/register', checkNotAuthenticated, function (req, res, next) {
-    res.json(validateRegistration(req))
+
+    var validation = validateRegistration(req.body);
+    if (validation.isValid) {
+        bcrypt.genSalt(saltRounds, function (err, salt) {
+            bcrypt.hash(req.body.password, salt, function (err, hash) {
+                var newAccount = {
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: hash
+                }
+                const newAccountEntry = new Account(newAccount);
+                newAccountEntry.save();
+                console.log('account created!');
+            });
+        });
+        console.log('account created!');
+
+        res.redirect('/auth/login');
+    } else {
+        res.render('register', {
+            val: validation,
+            bodyClasses: "hold-transition login-page",
+            navbar: false,
+            sidebar: false,
+            footer: false
+        })
+    }
+
 });
 
 

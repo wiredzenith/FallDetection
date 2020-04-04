@@ -4,15 +4,14 @@ const isEmpty = require('is-empty');
 module.exports = {
     //validate registration info to reduce junk being stored in DB
     validateRegistration: function (data) {
-        var data = data.query;
         
         let errors = {};
-        data.name = !isEmpty(data.name) ? data.name : "";
+        data.username = !isEmpty(data.username) ? data.username : "";
         data.email = !isEmpty(data.email) ? data.email : "";
         data.password = !isEmpty(data.password) ? data.password : "";
         data.password2 = !isEmpty(data.password2) ? data.password2 : "";
         //chesk if name was entered
-        if (validator.isEmpty(data.name)) {
+        if (validator.isEmpty(data.username)) {
             errors.name = "Name field is required";
         }
         // chec if email was entered 
