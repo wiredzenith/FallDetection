@@ -61,6 +61,10 @@
 
 - Over the last two weeks I have been working more on the communication between the ESP32 and the ADXL345 in order to be able to detect falls, the ADXL345 and the ability to detect free fall velocity after being configured to do so i will be able to issue an interrupt to the ESP32 and then measure the time of the free fall and read the orientation of the sensor then establish if a fall has occurred. Over the last few weeks i have been having trouble with the technologies I chose initially, so i have chosen to switch gears and after some research and testing I have installed micro python on the ESP32 and i think this is the direction i will now take. I am no longer trying to use SPI communication but instead using i2c. for testing the ESP32 functions i have a direct communication between the board and my IDE called repl (Read–eval–print loop). this allows me to test my code without the need to compile and upload code every time I make a change. At the moment i have built a circuit to test the external hardware interrupt functions of the ESP32.over the next few weeks 03/02 till 17/02 i will focus on the configuration of the ADXL345 via i2c and begin testing.
 
+### 04/04/20
+
+- I have been continually working on the i2c communication and setup of the ADXL345 accelerometer and i still have not made progress on that side. To continue work i have gone back to the website, the one i had set up before used react and was quite complex and was build using online tutorials and example code, i have decided to scrap that site and make a new one using what i have learnt during cloud computing this year. the new site i still being worked on, but i have login working new users are able to register and i can display stored contacts. I will continue working on the website for a few days, and by monday i will go back to the ESP, Im having trouble with the spi so for now i want to focus on getting the ESP to fetch contact info from mongo db using an endpoint from my node webserver.
+
 #### ToDo
 
 - #### mern web app
