@@ -35,7 +35,7 @@
             <!-- /.card-header -->
             <div class="card-body table-responsive p-2">
               <table id="contacts_page" class="table table-bordered table-striped">
-                <thead> 
+                <thead>
                   <tr>
                     <th>Remove</th>
                     <th>Name</th>
@@ -45,9 +45,14 @@
                 <tbody>
                   {{#each contact}}
                   <tr>
-                    <td> 
-                      <button onclick="removeContact()" class="fa fa-times"></button>
-                      </td>
+                    <td>
+                      {{!-- <button type="button" onclick="removeContact()" class="fa fa-times"> Remove</button> --}}
+                      <form action="/contacts" method="post">
+
+                        <input type="hidden" id="_id{{@index}}" name="_id" value="{{_id}}">
+                        <button type="submit" class="btn btn-block btn-danger">Remove</button>
+                      </form>
+                    </td>
 
                     <td>{{name}}</td>
 
@@ -78,6 +83,7 @@
 </div>
 <!-- ./wrapper -->
 
+</html>
 <!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- DataTables -->

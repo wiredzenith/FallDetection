@@ -65,6 +65,10 @@
 
 - I have been continually working on the i2c communication and setup of the ADXL345 accelerometer and i still have not made progress on that side. To continue work i have gone back to the website, the one i had set up before used react and was quite complex and was build using online tutorials and example code, i have decided to scrap that site and make a new one using what i have learnt during cloud computing this year. the new site i still being worked on, but i have login working new users are able to register and i can display stored contacts. I will continue working on the website for a few days, and by monday i will go back to the ESP, Im having trouble with the spi so for now i want to focus on getting the ESP to fetch contact info from mongo db using an endpoint from my node webserver.
 
+### 14/04/20
+
+- 
+
 #### ToDo
 
 - #### mern web app
