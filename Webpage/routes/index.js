@@ -15,19 +15,17 @@ router.get('/', checkAuthenticated, function (req, res, next) {
     helpers.sendRequest('https://api.mcsrvstat.us/2/minecraft.keane.live', function (body) {
 
         var formattedTime = helpers.generateTimestamp(body.debug.cachetime * 1000);
-        helpers.statusBox(body, function (status) {
 
-            res.render('index', {
-                timestamp: formattedTime,
-                stats: status,
-                active_dashboard: true,
-                bodyClasses: "hold-transition sidebar-mini layout-fixed",
-                showNavbar: true,
-                showSidebar: true,
-                showFooter: true,
-                currentUser: req.user.username,
-                title: "MCMonitor"
-            });
+
+        res.render('index', {
+            timestamp: formattedTime,
+            active_dashboard: true,
+            bodyClasses: "hold-transition sidebar-mini layout-fixed",
+            showNavbar: true,
+            showSidebar: true,
+            showFooter: true,
+            currentUser: req.user.username,
+            title: "Feather Fall"
         });
     });
 });
@@ -35,10 +33,10 @@ router.get('/', checkAuthenticated, function (req, res, next) {
 
 
 
-router.get('/contacts', checkAuthenticated, function (req, res, next) {
-   Contacts.find({}).lean().exec(function(err,contacts){
-       console.log(contacts);
-       
+router.get('/contacts', /* checkAuthenticated ,*/ function (req, res, next) {
+    Contacts.find({}).lean().exec(function (err, contacts) {
+        //console.log(contacts);
+
 
         res.render('contacts', {
             contact: contacts,
@@ -48,8 +46,8 @@ router.get('/contacts', checkAuthenticated, function (req, res, next) {
             showNavbar: true,
             showSidebar: true,
             showFooter: true,
-            currentUser: req.user.username,
-            title: "MCMonitor - Server Mod List"
+/*             currentUser: req.user.username,
+ */            title: "Feather Fall - Contacts Page"
         });
     })
 });

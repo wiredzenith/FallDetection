@@ -18,16 +18,15 @@ router.get('/login', checkNotAuthenticated, function (req, res, next) {
     helpers.sendRequest('https://api.mcsrvstat.us/2/minecraft.keane.live', function (body) {
 
         var formattedTime = helpers.generateTimestamp(body.debug.cachetime * 1000);
-        helpers.statusBox(body, function (status) {
 
-            res.render('login', {
-                timestamp: formattedTime,
-                stats: status,
-                bodyClasses: "hold-transition login-page",
-                navbar: false,
-                sidebar: false,
-                footer: false
-            });
+
+        res.render('login', {
+            timestamp: formattedTime,
+
+            bodyClasses: "hold-transition login-page",
+            navbar: false,
+            sidebar: false,
+            footer: false
         });
     });
 });

@@ -9,12 +9,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Mod List</h1>
+            <h1 class="m-0 text-dark">Contacts List</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Mod List</li>
+              <li class="breadcrumb-item active">Contacts List</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -35,7 +35,7 @@
             <!-- /.card-header -->
             <div class="card-body table-responsive p-2">
               <table id="contacts_page" class="table table-bordered table-striped">
-                <thead> 
+                <thead>
                   <tr>
                     <th>Remove</th>
                     <th>Name</th>
@@ -45,9 +45,14 @@
                 <tbody>
                   {{#each contact}}
                   <tr>
-                    <td> 
-                      <button onclick="removeContact()" class="fa fa-times"></button>
-                      </td>
+                    <td>
+                      {{!-- <button type="button" onclick="removeContact()" class="fa fa-times"> Remove</button> --}}
+                      <form action="/contacts" method="post">
+
+                        <input type="hidden" id="_id{{@index}}" name="_id" value="{{_id}}">
+                        <button type="submit" class="btn btn-block btn-danger">Remove</button>
+                      </form>
+                    </td>
 
                     <td>{{name}}</td>
 
@@ -78,6 +83,7 @@
 </div>
 <!-- ./wrapper -->
 
+</html>
 <!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- DataTables -->

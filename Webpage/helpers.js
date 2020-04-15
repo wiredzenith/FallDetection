@@ -31,7 +31,7 @@ function generateTimestamp(time) {
         hours = dateTime.getHours();
     }
 
-    // Will display time and date formad dd/mm/yy hh:mm:ss
+    // Will display time and date format dd/mm/yy hh:mm:ss
     var formattedTime = date.slice(-2) + '/' + month.slice(-2) + '/' + year + ' ' + hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
     return formattedTime;
 }
@@ -53,53 +53,8 @@ function sendRequest(url, callback) {
     });
 }
 
-function statusBox(body, callback) {
-
-    Contacts.countDocuments(function (err, count) {
-
-        var playersOnline
-        var noOfMods
-
-        if (body.mods != null) {
-            noOfMods = (Object.keys(body.mods.raw).length);
-        } else {
-            noOfMods = 'N/A';
-        }
-
-        if (body.players != null) {
-            playersOnline = body.players.online;
-        } else {
-            playersOnline = 'N/A'
-        }
-
-        if (body.online) {
-            infoBox = {
-                color: 'bg-success',
-                icon: 'check-circle',
-                message: 'All is well'
-            }
-        } else {
-            infoBox = {
-                color: 'bg-danger',
-                icon: 'times-circle',
-                message: 'Server down!'
-            }
-        }
-
-        var serverStats = {
-            noOfMods: noOfMods,
-            noPlayersOnline: playersOnline,
-            onlineStatus: infoBox,
-            totalPlayers: count
-        }
-
-        callback(serverStats);
-    });
-
-}
-
 module.exports = {
     generateTimestamp: generateTimestamp,
     sendRequest: sendRequest,
-    statusBox: statusBox
+  
 };
