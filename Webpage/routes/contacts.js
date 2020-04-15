@@ -8,11 +8,12 @@ var checkAuthenticated = auth.checkAuthenticated;
 var checkNotAuthenticated = auth.checkNotAuthenticated;
 
 
-router.post('/', checkAuthenticated, async function (req, res, next) {
-    console.log(req);
+router.post('/', checkNotAuthenticated, function (req, res, next) {
+    console.log(req.body);
     
-    Contacts.deleteOne({ _id: req.body._id }, async function (err, contact, next) {
-        res.redirect('/contacts')
+    Contacts.deleteOne({ _id: req.body._id }, function (err, contact, next) {
+        
+        res.send('Contact Deleted')
     })
 
 });

@@ -47,11 +47,9 @@
                   <tr>
                     <td>
                       {{!-- <button type="button" onclick="removeContact()" class="fa fa-times"> Remove</button> --}}
-                      <form action="/contacts" method="post">
-
-                        <input type="hidden" id="_id{{@index}}" name="_id" value="{{_id}}">
-                        <button type="submit" class="btn btn-block btn-danger">Remove</button>
-                      </form>
+                     
+                        <button type="button" onclick="removeContact('{{_id}}')" class="btn btn-block btn-danger">Remove</button>
+                      
                     </td>
 
                     <td>{{name}}</td>
