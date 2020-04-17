@@ -1,11 +1,14 @@
 const validator = require('validator');
 const isEmpty = require('is-empty');
 
+
+
 module.exports = {
     //validate registration info to reduce junk being stored in DB
     validateRegistration: function (data) {
         
         let errors = {};
+
         data.username = !isEmpty(data.username) ? data.username : "";
         data.email = !isEmpty(data.email) ? data.email : "";
         data.password = !isEmpty(data.password) ? data.password : "";
@@ -41,5 +44,31 @@ module.exports = {
             errors,
             isValid: isEmpty(errors)
         }
+    },
+     validateContact: function(data) {
+        let errors = {};
+console.log(data);
+
+        data.name = !isEmpty(data.name) ? data.name : "";
+        data.number = !isEmpty(data.number) ? data.number : "";
+
+        if (validator.isEmpty(data.name)){
+            errors.name = "Name field is required";
+        }
+        if(validator.isEmpty(data.number)){
+            errors.number = "Number field is required";
+        }
+        console.log(data.number);
+        if(!validator.isMobilePhone(data.number , "en-IE")){
+            errors.number = "Number must be a valid Irish mobile number";
+        }
+
+
+
+        return {
+            errors,
+            isValid: isEmpty(errors)
+        }
+
     }
 }

@@ -30,39 +30,79 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">DataTable with default features</h3>
+              <h3 class="card-title">New Contact</h3>
+            </div>
+            <div class="card-body">
+              <form action="/contacts/add" method="POST">
+                <div class="input-group mb-1">
+                  <div class="col-5">
+                    <div class="input-group mb-1">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <span class="fas fa-user pr-1"></span>
+                          <span>Name</span>
+                        </div>
+                      </div>
+                      <input type="text" name="name" id="name" placeholder="John Doe">
+
+                    </div>
+                  </div>
+
+                  <div class="col-5">
+                    <div class="input-group mb-1">
+
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">
+                          <span class="fas fa-phone pr-1"></span>
+                          <span>Phone</span>
+                        </div>
+                      </div>
+                      <input type="text" name="number" id="number" placeholder="+353 85 2302163 ">
+
+                    </div>
+                  </div>
+                  <div class="col-2">
+                    <button class="btn btn-block bg-gradient-primary" type="submit">Add Contact</button>
+                  </div>
+                </div>
+            </div>
+            </forum>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Contact List</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-2">
               <table id="contacts_page" class="table table-bordered table-striped">
                 <thead>
                   <tr>
-                    <th>Remove</th>
                     <th>Name</th>
                     <th>Number</th>
+                    <th>Remove</th>
                   </tr>
                 </thead>
                 <tbody>
                   {{#each contact}}
                   <tr>
-                    <td>
-                      {{!-- <button type="button" onclick="removeContact()" class="fa fa-times"> Remove</button> --}}
-                     
-                        <button type="button" onclick="removeContact('{{_id}}')" class="btn btn-block btn-danger">Remove</button>
-                      
-                    </td>
-
                     <td>{{name}}</td>
-
                     <td>{{number}}</td>
+                    <td class="text-center">
+                      {{!--                       <button type="button" onclick="editContact('{{_id}}')"
+                        class="btn btn-success ">Edit</button> --}}
+
+                      <button type="button" onclick="removeContact('{{_id}}')"
+                        class="btn bg-gradient-danger ">Remove</button>
+                    </td>
                   </tr>
                   {{/each}}
                 </tbody>
                 <tfoot>
                   <tr>
-                    <th>Remove</th>
                     <th>Name</th>
                     <th>Number</th>
+                    <th>Remove</th>
                   </tr>
                 </tfoot>
               </table>
@@ -92,6 +132,9 @@
 <script>
   $(function () {
     $('#contacts_page').DataTable({
+      "columnDefs": [
+        { "width": "20%", "orderable": false, "targets": 2 }
+      ],
       "paging": true,
       "lengthChange": true,
       "searching": true,

@@ -33,3 +33,7 @@ function removeContact(id) {
     };
   })
 }
+
+function editContact(id) {
+  
+}

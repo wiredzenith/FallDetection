@@ -15,19 +15,14 @@ var validateRegistration = validation.validateRegistration
 const helpers = require('../helpers');
 
 router.get('/login', checkNotAuthenticated, function (req, res, next) {
-    helpers.sendRequest('https://api.mcsrvstat.us/2/minecraft.keane.live', function (body) {
 
-        var formattedTime = helpers.generateTimestamp(body.debug.cachetime * 1000);
+    res.render('login', {
+        bodyClasses: "hold-transition login-page",
+        navbar: false,
+        sidebar: false,
+        footer: false,
+        title: "Feather Fall - Log-in"
 
-
-        res.render('login', {
-            timestamp: formattedTime,
-
-            bodyClasses: "hold-transition login-page",
-            navbar: false,
-            sidebar: false,
-            footer: false
-        });
     });
 });
 
@@ -38,7 +33,9 @@ router.get('/register', checkNotAuthenticated, function (req, res, next) {
         bodyClasses: "hold-transition login-page",
         navbar: false,
         sidebar: false,
-        footer: false
+        footer: false,
+        title: "Feather Fall - Register"
+
     });
 });
 
@@ -55,7 +52,6 @@ router.post('/register', checkNotAuthenticated, function (req, res, next) {
                 }
                 const newAccountEntry = new Account(newAccount);
                 newAccountEntry.save();
-                console.log('account created!');
             });
         });
         console.log('account created!');
