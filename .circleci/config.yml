@@ -1,5 +1,4 @@
 version: 2.1
-
 orbs:
   node: circleci/node@1.1.6
 jobs:
@@ -8,11 +7,9 @@ jobs:
       name: node/default
     working_directory: ~/Webpage
     steps:
-      
       - checkout
       - node/with-cache:
           steps:
-            - run: cd ~/Webpage/
             - run: npm install
             - run: npm test
 workflows:
