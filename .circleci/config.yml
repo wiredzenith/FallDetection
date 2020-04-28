@@ -5,6 +5,7 @@ orbs:
 jobs:
   build-and-test:
     executor:
+      working_directory: ~/Webpage
       name: node/default
       
     steps:
