@@ -4,7 +4,7 @@ orbs:
 jobs:
   build-and-test:
     executor:
-      working_directory: webpage/
+      
       name: node/default
     steps:
       - checkout
@@ -14,5 +14,6 @@ jobs:
             - run: npm test
 workflows:
     build-and-test:
+      working_directory: webpage/
       jobs:
         - build-and-test
