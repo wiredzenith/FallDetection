@@ -8,32 +8,42 @@ function removeContact(id) {
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
     confirmButtonText: 'Yes, delete it!'
-  }).then(function (result) {
+  }).then( function (result) {
+
+    
     if (result.value) {
       console.log(id);
 
-      var data = { _id: id }
-
-      fetch("/contacts", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      }).then(function (res) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Contact Deleted",
-          type: "success"
-        }).then(function () {
-          window.location = "/contacts";
-          return console.log("Request complete! response:", res);
-        })
+      fetch("/contacts/" + id, {
+        method: "delete"
+      }).then(async function (res) {
+var response = await res.json();
+console.log(response);
+         
+        if (response.n) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Contact Deleted",
+            type: "success"
+          }).then(function () {
+            window.location = "/contacts";
+            return console.log("Request complete! response:", res);
+          })
+        } else {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Contact Deleted",
+            type: "error"
+          }).then(function () {
+            window.location = "/contacts";
+            return console.log("Request complete! response:", res);
+          })
+        }
       });
     };
   })
 }
 
 function editContact(id) {
-  
+
 }

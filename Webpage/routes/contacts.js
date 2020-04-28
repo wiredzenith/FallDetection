@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const Contacts = require('../models/contacts')
 var validation = require('../middleware/validation');
-const Swal = require('sweetalert2')
 
 
 var auth = require('../middleware/check-auth');
@@ -11,17 +10,24 @@ var checkNotAuthenticated = auth.checkNotAuthenticated;
 var validateContact = validation.validateContact;
 
 
-router.post('/', checkAuthenticated, function (req, res, next) {
-    console.log(req.body);
+router.delete('/:id', /* checkAuthenticated, */ async function (req, res, next) {
+    console.log(req.params);
 
-    Contacts.deleteOne({ _id: req.body._id }, function (err, contact, next) {
+    try {
+        var result = await Contacts.deleteOne({ _id: req.params.id }).exec();
+        res.send(result);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+
+  /*   Contacts.deleteOne({ _id: req.params.id }, function (err, contact, next) {
 
         res.end('Contact Deleted')
-    })
+    }) */
 
 });
 
-router.post('/add', checkAuthenticated, function (req, res, next) {
+router.post('/add', /* checkAuthenticated, */ function (req, res, next) {
 
     var validation = validateContact(req.body);
     if (validation.isValid) {

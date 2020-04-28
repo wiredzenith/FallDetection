@@ -26,7 +26,7 @@ router.get('/', checkAuthenticated, function (req, res, next) {
 
 
 
-router.get('/contacts', checkAuthenticated, function (req, res, next) {
+router.get('/contacts', /* checkAuthenticated, */ function (req, res, next) {
     Contacts.find({}).lean().exec(function (err, contacts) {
         //console.log(contacts);
 
@@ -38,7 +38,7 @@ router.get('/contacts', checkAuthenticated, function (req, res, next) {
             showNavbar: true,
             showSidebar: true,
             showFooter: true,
-            currentUser: req.user.username,
+            /* currentUser: req.user.username, */
             title: "Feather Fall - Contacts Page"
         });
     })
