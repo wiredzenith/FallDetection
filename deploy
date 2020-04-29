@@ -1,0 +1,10 @@
+#!/bin/sh
+ssh root@wiredzenith.tech<<EOF
+   cd /FallDetection
+   git pull origin master
+   cd Webpage/
+   npm audit fix
+   npm install
+   pm2 restart all
+   exit
+EOF
