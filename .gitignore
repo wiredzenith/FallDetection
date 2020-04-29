@@ -5,6 +5,6 @@ Fall_Detection_Device
 Adafruit_CircuitPython_ADXL34x
 ESP-FallDetection
 ESP32
-/Webpage/.env
+*.env
 mern-auth
 
