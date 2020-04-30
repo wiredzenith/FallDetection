@@ -98,6 +98,10 @@ _(These items are currently on hold while I begin work on the ATmega 324BP)_
 
 - [ ] configure ADXL345 for issuing interrupts on a free fall.
 
+- [ ] Host webpage online.
+
+- [ ] Add pipeline to bulld and diploy webpage online after commit to github
+
 #### Project introduction
 
 explanation of what my project is and my reason for choosing it.
