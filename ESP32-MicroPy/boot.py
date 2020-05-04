@@ -1,4 +1,13 @@
+# boot.py 
+# 
+# Tomasz Klebek
+# 2020
+# 
+# Referenced material https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo
+#
 # This file is executed on every boot (including wake-boot from deepsleep)
+
+
 #import esp
 #esp.osdebug(None)
 #import webrepl
@@ -11,10 +20,8 @@ from machine import Timer
 
 
 def timerIrq_0(timer):
-    """[summary]
-
-    Arguments:
-        timer {[type]} -- [description]
+    """Timer interrupt handler. 
+    flashes an led 
     """
     if (RED_LED.value() == True):
         RED_LED.value(0)
@@ -26,13 +33,11 @@ def timerIrq_0(timer):
 
 
 def swInterrupt(pin):
-    """[summary]
-
-    Arguments:
-        pin {[type]} -- [description]
+    """Switch interrupt handler. Calls sendMessageToAllContacts()
+    
     """
     print('SW Pressed')
-    gsmFunct.sendSMS("00353852302163", "hey sexy")
+    gsmFunct.sendMessageToAllContacts()
     if (GRN_LED.value() == 1):
         GRN_LED.value(0)
     else:
@@ -41,8 +46,9 @@ def swInterrupt(pin):
 
 #* end of swInterrupt
 
-RED_LED = Pin(13, Pin.INOUT)  # create output
-GRN_LED = Pin(12, Pin.INOUT)  # create output
+# create output pins
+RED_LED = Pin(13, Pin.INOUT)  
+GRN_LED = Pin(12, Pin.INOUT)  
 
 # create pin 22 and set it as input and enable pull up
 SW = Pin(14,

@@ -1,3 +1,13 @@
+# boot.py 
+# 
+# Tomasz Klebek
+# 2020
+# 
+# GSM function and handling of incoming and outgoing messages 
+#
+# Referenced material https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo
+#
+
 import machine, time, sys
 import os
 import gsm
@@ -5,18 +15,14 @@ import json
 import urequests as req
 
 #Variables
-
-
 contactsPath = "contactFile.txt"
 
 # APN credentials
-
-GSM_APN = 'data.myeirmobile.ie'  # Your APN
-GSM_USER = ''  # Your User
-GSM_PASS = ''  # Your Pass
+GSM_APN = 'data.myeirmobile.ie'  # APN
+GSM_USER = ''  # User name
+GSM_PASS = ''  # Password
 
 # Power on the GSM module
-
 GSM_PWR = machine.Pin(4, machine.Pin.OUT)
 GSM_RST = machine.Pin(5, machine.Pin.OUT)
 GSM_MODEM_PWR = machine.Pin(23, machine.Pin.OUT)
@@ -25,11 +31,12 @@ GSM_PWR.value(0)
 GSM_RST.value(1)
 GSM_MODEM_PWR.value(1)
 
-GRN_LED = machine.Pin(12, machine.Pin.INOUT)  # create output
+# create output
+GRN_LED = machine.Pin(12, machine.Pin.INOUT)  
 
 #* Init PPPoS
 
-gsm.debug(True)  # this to see more logs, investigate issues, etc.
+#gsm.debug(True)  # this to see more logs, investigate issues, etc.
 
 gsm.start(tx=27, rx=26, apn=GSM_APN, user=GSM_USER, password=GSM_PASS)
 
@@ -64,18 +71,27 @@ print()
 
 
 def sendSMS(outgoingNumber, outgoingMsg):
-    """[summary]
+    """send an out going text message 
 
     Arguments:
-        outgoingNumber {[type]} -- [description]
-        outgoingMsg {[type]} -- [description]
+        outgoingNumber {string} -- The number of the person receiving the message 
+        outgoingMsg {string} -- The message you want to send
     """
     gsm.sendSMS(outgoingNumber, outgoingMsg)
 
 #* end of sendSMS gsmFunct.sendMessageToAllContacts()
 
+def printAllContacts():
+    with open(contactsPath, 'r') as contacts_json:
+        contactsList = json.load(contacts_json)
+
+    return contactsList
+        
+
 def sendMessageToAllContacts():
-    
+    """ send an alert message to all registers contacts using the .txt file 
+    stored on the device
+    """
     with open(contactsPath, 'r') as contacts_json:
         contactsList = json.load(contacts_json)
 
@@ -87,10 +103,11 @@ def sendMessageToAllContacts():
     
 
 def getContacts():
-    """[summary]
+    """Makes a rest call to wiredzenith.tech that get a 
+    list of the users stored in the database
 
     Returns:
-        [type] -- [description]
+        json object -- array of object contaning users names and numbers
     """
     
     usersList = []
@@ -106,6 +123,9 @@ def getContacts():
 #* end of getContacts
 
 def saveContactsToFile():
+    """Uses getContacts() to retrive contact list and 
+    store it as a .txt file on the device 
+    """
     usersList = []
         
     try:
@@ -125,10 +145,10 @@ def saveContactsToFile():
 #* end of saveContactsToFile
 
 def smscb(indexes):
-    """[summary]
+    """Call back function that is called on the arrival of new messages
 
     Arguments:
-        indexes {[type]} -- [description]
+        indexes {tuple} -- indexes of unread messages 
     """
     if indexes:
         print(indexes[0])
@@ -140,45 +160,40 @@ def smscb(indexes):
             inboundMsg = msg[6].strip().lower()
             sendersNo = msg[2]
             print(inboundMsg)
+            
             if inboundMsg == "test":
-                sendSMS(sendersNo, "test this sexy")
-
-            elif inboundMsg == "hello":
-                sendSMS(sendersNo, "hello this sexy")
-
-            elif inboundMsg == "balance":
-                sendSMS(sendersNo, "balance this sexy")
-
+                sendSMS(sendersNo, "generic response ;)")
+                
             elif inboundMsg == "contacts":
-                sendSMS(sendersNo, "contacts sexy")
-
+                contacts = printAllContacts()
+                sendSMS(sendersNo, contacts)
+           
             elif inboundMsg == "my number":
-                sendSMS(sendersNo, "0852302163")
+                sendSMS(sendersNo, sendersNo)
+           
             elif inboundMsg == "999":
                 sendMessageToAllContacts()
+            
             elif inboundMsg is "led":
                 if (GRN_LED.value() == 1):
                     GRN_LED.value(0)
                 else:
                     GRN_LED.value(1)
+          
             else:
-                sendSMS(
-                    sendersNo,
-                    """\rHelp: test = a sext test balance = sexy balance contacts = sexy contacts my number = my number """
-                )
+                msg = """
+                Help: 
+                'test' = Send a generic response. 
+                'contacts' = Returns list of contacts.
+                'my number' = Returns senders number.
+                'led' = Toggle the green led on the device.
+                '999' = Send alert message to all registered contacts.
+                """
+                sendSMS(sendersNo,msg)
 
 
 #* end of smscb()
-
-# def resA():
-#     if (GRN_LED.value() == 1):
-#         GRN_LED.value(0)
-#     else:
-#         GRN_LED.value(1)
-
-
-
-  
+ 
 #! WARNING do not add this again, causes device to hang and require reflash
 #uart = machine.UART(2, tx=27, rx=26, timeout=5000,  buffer_size=1024)
 #uart.callback(uart.CBTYPE_PATTERN, uart_cb, pattern= "D: ")
@@ -186,4 +201,8 @@ def smscb(indexes):
 # Get contacts list when the device starts
 saveContactsToFile() 
 
+# regester callback function that is called on the arrival of new messages 
+#
+# smscb = callback function
+# 5 = Interval at which to check if a new message has arrived 
 gsm.sms_cb(smscb, 5)
