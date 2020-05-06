@@ -24,24 +24,4 @@ router.get('/', checkAuthenticated, function (req, res, next) {
 });
 
 
-
-
-router.get('/contacts', /* checkAuthenticated, */ function (req, res, next) {
-    Contacts.find({}).lean().exec(function (err, contacts) {
-        //console.log(contacts);
-
-        res.render('contacts', {
-            contact: contacts,
-            active_server: true,
-            active_contacts: true,
-            bodyClasses: "hold-transition sidebar-mini layout-fixed",
-            showNavbar: true,
-            showSidebar: true,
-            showFooter: true,
-            /* currentUser: req.user.username, */
-            title: "Feather Fall - Contacts Page"
-        });
-    })
-});
-
 module.exports = router;

@@ -10,6 +10,24 @@ var checkNotAuthenticated = auth.checkNotAuthenticated;
 var validateContact = validation.validateContact;
 
 
+router.get('/', /* checkAuthenticated, */ function (req, res, next) {
+    Contacts.find({}).lean().exec(function (err, contacts) {
+        //console.log(contacts);
+
+        res.render('contacts', {
+            contact: contacts,
+            active_server: true,
+            active_contacts: true,
+            bodyClasses: "hold-transition sidebar-mini layout-fixed",
+            showNavbar: true,
+            showSidebar: true,
+            showFooter: true,
+            /* currentUser: req.user.username, */
+            title: "Feather Fall - Contacts Page"
+        });
+    })
+});
+
 router.delete('/:id', /* checkAuthenticated, */ async function (req, res, next) {
     console.log(req.params);
 
@@ -20,14 +38,10 @@ router.delete('/:id', /* checkAuthenticated, */ async function (req, res, next) 
         res.status(500).send(error);
     }
 
-  /*   Contacts.deleteOne({ _id: req.params.id }, function (err, contact, next) {
-
-        res.end('Contact Deleted')
-    }) */
-
 });
 
 router.post('/add', /* checkAuthenticated, */ function (req, res, next) {
+
 
     var validation = validateContact(req.body);
     if (validation.isValid) {
@@ -50,10 +64,23 @@ router.post('/add', /* checkAuthenticated, */ function (req, res, next) {
                     console.log("contact exists");
                 }
             });
+    } else {
+        Contacts.find({}).lean().exec(function (err, contacts) {
+            res.render('contacts', {
+                errors: validation.errors,
+                contact: contacts,
+                active_server: true,
+                active_contacts: true,
+                bodyClasses: "hold-transition sidebar-mini layout-fixed",
+                showNavbar: true,
+                showSidebar: true,
+                showFooter: true,
+                /* currentUser: req.user.username, */
+                title: "Feather Fall - Contacts Page"
+            });
+        })
     }
     console.log(validation);
-    
-    res.redirect('back');
 })
 
 router.get('/list', function (req, res, next) {

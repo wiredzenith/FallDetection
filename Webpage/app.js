@@ -11,7 +11,6 @@ var authRouter = require('./routes/auth');
 var contactsRouter = require('./routes/contacts');
 var notFoundRouter = require('./routes/notFound')
 
-
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
