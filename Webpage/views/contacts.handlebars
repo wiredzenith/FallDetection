@@ -35,7 +35,7 @@
             <div class="card-body">
               <form action="/contacts/add" method="POST">
                 <div class="input-group mb-1">
-                  <div class="row mr-4">
+                  <div class="row mr-4" style="width: 300px">
                     <div class="input-group mb-1 flex-nowrap">
                       <div class="input-group-prepend">
                         <div class="input-group-text" style="width: 90px; height:40px">
@@ -43,31 +43,31 @@
                           <span>Name</span>
                         </div>
                       </div>
-                      <input type="text" name="name" id="name" placeholder="John Doe">
-
+                      <input type="text" name="name" id="name" placeholder="John Doe" style="height:40px">
                     </div>
+                    <h3 class="card-title text-danger">{{{errors.name}}}</h3>
                   </div>
-
-                  <div class="row mr-4">
+                  <div class="row mr-4" style="width: 300px">
                     <div class="input-group mb-1 flex-nowrap">
-
                       <div class="input-group-prepend">
                         <div class="input-group-text" style="width: 90px; height:40px">
                           <span class="fas fa-phone pr-1"></span>
                           <span>Phone</span>
                         </div>
                       </div>
-                      <input type="text" name="number" id="number" placeholder="+353 85 2302163 ">
-
+                      <input type="text" name="number" id="number" placeholder="+353 852302163" style="height:40px">
                     </div>
+                    <h3 class="card-title text-danger">{{{errors.number}}}</h3>
                   </div>
                   <div class="row mr-4">
-                    <button class="btn btn-block bg-gradient-primary" style="width: 108px; height:40px" type="submit">Add Contact</button>
+                    <button class="btn btn-block bg-gradient-primary" style="width: 108px; height:40px"
+                      type="submit">Add Contact</button>
                   </div>
                 </div>
-            </form>
+              </form>
+            </div>
+            <!-- /.card -->
           </div>
-
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">Contact List</h3>
@@ -88,8 +88,7 @@
                     <td>{{name}}</td>
                     <td>{{number}}</td>
                     <td class="text-center">
-                      <button type="button" onclick="editContact('{{_id}}')"
-                        class="btn btn-success ">Edit</button>
+                      {{!-- <button type="button" onclick="editContact('{{_id}}')" class="btn btn-success ">Edit</button> --}}
                       <button type="button" onclick="removeContact('{{_id}}')"
                         class="btn bg-gradient-danger ">Remove</button>
                     </td>
@@ -107,11 +106,10 @@
             </div>
             <!-- /.card-body -->
           </div>
-          <!-- /.card -->
+
+          <!-- /.col -->
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+        <!-- /.row -->
     </section>
     <!-- /.content -->
   </div>

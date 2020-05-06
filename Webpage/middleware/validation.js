@@ -60,10 +60,8 @@ console.log(data);
         }
         console.log(data.number);
         if(!validator.isMobilePhone(data.number , "en-IE")){
-            errors.number = "Number must be a valid Irish mobile number";
+            errors.number = "Must be an Irish mobile number";
         }
-
-
 
         return {
             errors,
