@@ -10,7 +10,7 @@ var checkNotAuthenticated = auth.checkNotAuthenticated;
 var validateContact = validation.validateContact;
 
 
-router.get('/', /* checkAuthenticated, */ function (req, res, next) {
+router.get('/', checkAuthenticated, function (req, res, next) {
     Contacts.find({}).lean().exec(function (err, contacts) {
         //console.log(contacts);
 
@@ -22,13 +22,13 @@ router.get('/', /* checkAuthenticated, */ function (req, res, next) {
             showNavbar: true,
             showSidebar: true,
             showFooter: true,
-            /* currentUser: req.user.username, */
+            currentUser: req.user.username,
             title: "Feather Fall - Contacts Page"
         });
     })
 });
 
-router.delete('/:id', /* checkAuthenticated, */ async function (req, res, next) {
+router.delete('/:id', checkAuthenticated, async function (req, res, next) {
     console.log(req.params);
 
     try {
@@ -40,7 +40,7 @@ router.delete('/:id', /* checkAuthenticated, */ async function (req, res, next) 
 
 });
 
-router.post('/add', /* checkAuthenticated, */ function (req, res, next) {
+router.post('/add', checkAuthenticated, function (req, res, next) {
 
 
     var validation = validateContact(req.body);
@@ -75,7 +75,7 @@ router.post('/add', /* checkAuthenticated, */ function (req, res, next) {
                 showNavbar: true,
                 showSidebar: true,
                 showFooter: true,
-                /* currentUser: req.user.username, */
+                currentUser: req.user.username,
                 title: "Feather Fall - Contacts Page"
             });
         })
