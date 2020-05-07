@@ -40,6 +40,18 @@ router.delete('/:id', checkAuthenticated, async function (req, res, next) {
 
 });
 
+router.put('/:id', checkAuthenticated, async function (req, res, next) {
+    console.log(req.params);
+
+    try {
+        var result = await Contacts.deleteOne({ _id: req.params.id }).exec();
+        res.send(result);
+    } catch (error) {
+        res.status(500).send(error);
+    }
+
+});
+
 router.post('/add', checkAuthenticated, function (req, res, next) {
 
 

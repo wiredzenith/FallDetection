@@ -43,7 +43,3 @@ console.log(response);
     };
   })
 }
-
-function editContact(id) {
-
-}
