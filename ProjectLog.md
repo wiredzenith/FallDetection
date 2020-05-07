@@ -67,7 +67,12 @@
 
 ### 14/04/20
 
-- 
+Working on the webpage I have implemented contacts page that displays contacts stored on mongo atlas users can be displayed on this page, next to this will be to add functionality for deleting users.
+
+### 30/04/20
+
+That's it! I have a functioning webpage that stores users contact info and can be deleted. new users registration and log in
+my esp device can establish communication with an exposed route on the webserver to retrieve contact info and message multiple people in one go. I won't be doing much more work from now on this. only to be fixing small issues I find.
 
 #### ToDo
 
@@ -98,25 +103,10 @@ _(These items are currently on hold while I begin work on the ATmega 324BP)_
 
 - [ ] configure ADXL345 for issuing interrupts on a free fall.
 
-- [ ] Host webpage online.
+- [x] Host webpage online.
 
-- [ ] Add pipeline to bulld and diploy webpage online after commit to github
+- [x] Add pipeline to bulld and diploy webpage online after commit to github
 
-#### Project introduction
-
-explanation of what my project is and my reason for choosing it.
-
-#### Technology's used in my project
-
-react, node , express, MongoDB (MERN). ATmega 324PB. analog devices accelerator ADXL345, GSM
-
-#### Demo
-
-MERN wep app atmega SPI
-
-#### Project plan
-
-OpenProject gant chart
 
 [l1]: https://reactjs.org/ "react web page"
 [l2]: https://serverless-stack.com/chapters/create-a-login-page.html "serverless website"
