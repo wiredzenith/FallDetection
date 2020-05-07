@@ -4,8 +4,16 @@ const isEmpty = require('is-empty');
 
 
 module.exports = {
-    //validate registration info to reduce junk being stored in DB
+    /**
+     * Validation helper to validate new user registration from data.
+     * return errors if any of the fields are missing or email is not valid format or 
+     * passwords no not match.
+     *
+     * @param {*} data -- data from form to be validated
+     * @returns -- Object of errors or if no errors returns True
+     */
     validateRegistration: function (data) {
+        
         
         let errors = {};
 
@@ -45,7 +53,16 @@ module.exports = {
             isValid: isEmpty(errors)
         }
     },
-     validateContact: function(data) {
+    /**
+     *validation helper function to validate contact numbers and names befro being 
+     saved in to MongoDB database.
+     *
+     * @param {*} data -- input data from the form to be validated
+     * @returns -- Object oi errors or is no errors returns True
+     */
+    validateContact: function(data) {
+         
+         
         let errors = {};
 console.log(data);
 

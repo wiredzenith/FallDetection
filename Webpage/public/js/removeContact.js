@@ -1,5 +1,13 @@
-
+/**
+ * Remove contact function. removes contact from database on button click.
+ * receives one parameter id, the id of the contact to be deleted. using 
+ * sweetalerts2 displays conformation dialog before sending a post request
+ * to the express api to delete the entry from the database
+ *
+ * @param {*} id -- id no. of the entry to be deleted
+ */
 function removeContact(id) {
+  
   Swal.fire({
     title: 'Are you sure?',
     text: "You won't be able to undo this!",
@@ -42,8 +50,4 @@ console.log(response);
       });
     };
   })
-}
-
-function editContact(id) {
-
 }
