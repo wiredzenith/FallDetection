@@ -1,6 +1,8 @@
 #!/bin/sh
 ssh root@wiredzenith.tech<<EOF
    cd /FallDetection
+   git stash push --include-untracked
+   git stash drop
    git pull
    cd Webpage/
    npm audit fix
