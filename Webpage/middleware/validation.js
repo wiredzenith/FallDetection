@@ -1,6 +1,11 @@
 const validator = require('validator');
 const isEmpty = require('is-empty');
 
+const Contacts = require('../models/contacts')
+const Account = require('../models/accounts');
+
+
+
 
 
 module.exports = {
@@ -13,8 +18,8 @@ module.exports = {
      * @returns -- Object of errors or if no errors returns True
      */
     validateRegistration: function (data) {
-        
-        
+
+
         let errors = {};
 
         data.username = !isEmpty(data.username) ? data.username : "";
@@ -22,8 +27,15 @@ module.exports = {
         data.password = !isEmpty(data.password) ? data.password : "";
         data.password2 = !isEmpty(data.password2) ? data.password2 : "";
         //chesk if name was entered
+        if (isAccountUnique('username',data.username)){
+            errors.username = "Username already exists";
+        }
         if (validator.isEmpty(data.username)) {
-            errors.name = "Name field is required";
+            errors.username = "Name field is required";
+        }
+       
+        if (isAccountUnique('email',data.email)){
+            errors.email = "Email already exists";
         }
         // chec if email was entered 
         if (validator.isEmpty(data.email)) {
@@ -32,6 +44,7 @@ module.exports = {
         } else if (!validator.isEmail(data.email)) {
             errors.email = "Email is invalid";
         }
+       
         // check passowrd
         if (validator.isEmpty(data.password)) {
             errors.password = "Password field is required";
@@ -60,23 +73,29 @@ module.exports = {
      * @param {*} data -- input data from the form to be validated
      * @returns -- Object oi errors or is no errors returns True
      */
-    validateContact: function(data) {
-         
-         
+    validateContact: function (data) {
+
+
         let errors = {};
-console.log(data);
+        console.log(data);
 
         data.name = !isEmpty(data.name) ? data.name : "";
         data.number = !isEmpty(data.number) ? data.number : "";
 
-        if (validator.isEmpty(data.name)){
+        if (isContactUnique('number',data.number)){
+            errors.number = "Number already exists";
+        }
+        if (isContactUnique('name',data.name)){
+            errors.name = "Name already exists";
+        }
+        if (validator.isEmpty(data.name)) {
             errors.name = "Name field is required";
         }
-        if(validator.isEmpty(data.number)){
+        if (validator.isEmpty(data.number)) {
             errors.number = "Number field is required";
         }
         console.log(data.number);
-        if(!validator.isMobilePhone(data.number , "en-IE")){
+        if (!validator.isMobilePhone(data.number, "en-IE")) {
             errors.number = "Must be an Irish mobile number";
         }
 
@@ -87,3 +106,13 @@ console.log(data);
 
     }
 }
+
+async function isAccountUnique(param,data) {
+   var unique = await Account.find({ param: data }).count() > 1
+   return unique
+}
+
+async function isContactUnique(param,data) {
+    var unique = await Contacts.find({ param: data }).count() > 1
+    return unique
+ }

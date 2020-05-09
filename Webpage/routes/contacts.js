@@ -57,9 +57,7 @@ router.post('/add', checkAuthenticated, function (req, res, next) {
 
     var validation = validateContact(req.body);
     if (validation.isValid) {
-        Contacts.findOne(
-            { number: req.body.number },
-            function (err, contact, next) {
+        Contacts.findOne({ number: req.body.number }, function (err, contact, next) {
                 console.log(contact);
 
                 if (contact === null) {
@@ -75,6 +73,7 @@ router.post('/add', checkAuthenticated, function (req, res, next) {
                 } else {
                     console.log("contact exists");
                 }
+                res.redirect(back)
             });
     } else {
         Contacts.find({}).lean().exec(function (err, contacts) {
