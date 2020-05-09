@@ -61,7 +61,7 @@ router.post('/add', checkAuthenticated, function (req, res, next) {
                 } else {
                     console.log("contact exists");
                 }
-                res.redirect('back')
+                res.redirect('/contacts')
             });
            
     } else {
