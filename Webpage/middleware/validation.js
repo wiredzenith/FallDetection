@@ -26,16 +26,10 @@ module.exports = {
         data.email = !isEmpty(data.email) ? data.email : "";
         data.password = !isEmpty(data.password) ? data.password : "";
         data.password2 = !isEmpty(data.password2) ? data.password2 : "";
-        //chesk if name was entered
-        if (isAccountUnique('username',data.username)){
-            errors.username = "Username already exists";
-        }
+
+         //chesk if name was entered
         if (validator.isEmpty(data.username)) {
             errors.username = "Name field is required";
-        }
-       
-        if (isAccountUnique('email',data.email)){
-            errors.email = "Email already exists";
         }
         // chec if email was entered 
         if (validator.isEmpty(data.email)) {
@@ -82,12 +76,6 @@ module.exports = {
         data.name = !isEmpty(data.name) ? data.name : "";
         data.number = !isEmpty(data.number) ? data.number : "";
 
-        if (isContactUnique('number',data.number)){
-            errors.number = "Number already exists";
-        }
-        if (isContactUnique('name',data.name)){
-            errors.name = "Name already exists";
-        }
         if (validator.isEmpty(data.name)) {
             errors.name = "Name field is required";
         }
@@ -106,13 +94,3 @@ module.exports = {
 
     }
 }
-
-async function isAccountUnique(param,data) {
-   var unique = await Account.find({ param: data }).count() > 1
-   return unique
-}
-
-async function isContactUnique(param,data) {
-    var unique = await Contacts.find({ param: data }).count() > 1
-    return unique
- }

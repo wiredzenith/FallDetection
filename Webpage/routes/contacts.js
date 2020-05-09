@@ -40,18 +40,6 @@ router.delete('/:id', checkAuthenticated, async function (req, res, next) {
 
 });
 
-router.put('/:id', checkAuthenticated, async function (req, res, next) {
-    console.log(req.params);
-
-    try {
-        var result = await Contacts.deleteOne({ _id: req.params.id }).exec();
-        res.send(result);
-    } catch (error) {
-        res.status(500).send(error);
-    }
-
-});
-
 router.post('/add', checkAuthenticated, function (req, res, next) {
 
 
@@ -73,8 +61,9 @@ router.post('/add', checkAuthenticated, function (req, res, next) {
                 } else {
                     console.log("contact exists");
                 }
-                res.redirect(back)
+                res.redirect('back')
             });
+           
     } else {
         Contacts.find({}).lean().exec(function (err, contacts) {
             res.render('contacts', {
