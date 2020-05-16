@@ -13,9 +13,11 @@
 #import webrepl
 #webrepl.start()
 
-import gsmFunct
+import gsmFunc
+#import i2c
 from machine import Pin
 from machine import Timer
+
 
 
 
@@ -37,7 +39,7 @@ def swInterrupt(pin):
     
     """
     print('SW Pressed')
-    gsmFunct.sendMessageToAllContacts()
+    gsmFunc.sendMessageToAllContacts()
     if (GRN_LED.value() == 1):
         GRN_LED.value(0)
     else:

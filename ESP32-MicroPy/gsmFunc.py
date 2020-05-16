@@ -36,7 +36,7 @@ GRN_LED = machine.Pin(12, machine.Pin.INOUT)
 
 #* Init PPPoS
 
-#gsm.debug(True)  # this to see more logs, investigate issues, etc.
+gsm.debug(True)  # this to see more logs, investigate issues, etc.
 
 gsm.start(tx=27, rx=26, apn=GSM_APN, user=GSM_USER, password=GSM_PASS)
 
